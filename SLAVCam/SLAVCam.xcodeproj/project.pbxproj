@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85058F5021B15B4B000A4207 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85058F4F21B15B4B000A4207 /* AppDelegate.m */; };
+		85058F5321B15B4B000A4207 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85058F5221B15B4B000A4207 /* ViewController.m */; };
+		85058F5621B15B4B000A4207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85058F5421B15B4B000A4207 /* Main.storyboard */; };
+		85058F5821B15B4E000A4207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85058F5721B15B4E000A4207 /* Assets.xcassets */; };
+		85058F5B21B15B4E000A4207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85058F5921B15B4E000A4207 /* LaunchScreen.storyboard */; };
+		85058F5E21B15B4E000A4207 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85058F5D21B15B4E000A4207 /* main.m */; };
+		F3553ED05F6746B4343DD8A8 /* libPods-SLAVCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6C37F137CD317740822B8C /* libPods-SLAVCam.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B6C37F137CD317740822B8C /* libPods-SLAVCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLAVCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85058F4B21B15B4B000A4207 /* SLAVCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAVCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85058F4E21B15B4B000A4207 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		85058F4F21B15B4B000A4207 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		85058F5121B15B4B000A4207 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		85058F5221B15B4B000A4207 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		85058F5521B15B4B000A4207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85058F5721B15B4E000A4207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85058F5A21B15B4E000A4207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85058F5C21B15B4E000A4207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85058F5D21B15B4E000A4207 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AED8AA3C3B00F2FE54C5D8F0 /* Pods-SLAVCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLAVCam.release.xcconfig"; path = "Pods/Target Support Files/Pods-SLAVCam/Pods-SLAVCam.release.xcconfig"; sourceTree = "<group>"; };
+		E141C1136DA3799CED2877F4 /* Pods-SLAVCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SLAVCam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SLAVCam/Pods-SLAVCam.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85058F4821B15B4B000A4207 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3553ED05F6746B4343DD8A8 /* libPods-SLAVCam.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72A10442B1D94C85C31D27B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E141C1136DA3799CED2877F4 /* Pods-SLAVCam.debug.xcconfig */,
+				AED8AA3C3B00F2FE54C5D8F0 /* Pods-SLAVCam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		85058F4221B15B4B000A4207 = {
+			isa = PBXGroup;
+			children = (
+				85058F4D21B15B4B000A4207 /* SLAVCam */,
+				85058F4C21B15B4B000A4207 /* Products */,
+				72A10442B1D94C85C31D27B2 /* Pods */,
+				DFEE767EDA7EF0110F116983 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		85058F4C21B15B4B000A4207 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85058F4B21B15B4B000A4207 /* SLAVCam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85058F4D21B15B4B000A4207 /* SLAVCam */ = {
+			isa = PBXGroup;
+			children = (
+				85058F6A21B15BFB000A4207 /* Classes */,
+				85058F6921B15BFB000A4207 /* Resources */,
+				85058F4E21B15B4B000A4207 /* AppDelegate.h */,
+				85058F4F21B15B4B000A4207 /* AppDelegate.m */,
+				85058F5121B15B4B000A4207 /* ViewController.h */,
+				85058F5221B15B4B000A4207 /* ViewController.m */,
+				85058F5421B15B4B000A4207 /* Main.storyboard */,
+				85058F5721B15B4E000A4207 /* Assets.xcassets */,
+				85058F5921B15B4E000A4207 /* LaunchScreen.storyboard */,
+				85058F5C21B15B4E000A4207 /* Info.plist */,
+				85058F5D21B15B4E000A4207 /* main.m */,
+			);
+			path = SLAVCam;
+			sourceTree = "<group>";
+		};
+		85058F6921B15BFB000A4207 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		85058F6A21B15BFB000A4207 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				85058F6B21B15BFB000A4207 /* Model */,
+				85058F6C21B15BFB000A4207 /* View */,
+				85058F6D21B15BFB000A4207 /* ViewController */,
+				85058F6E21B15BFB000A4207 /* Engine */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		85058F6B21B15BFB000A4207 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85058F6C21B15BFB000A4207 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		85058F6D21B15BFB000A4207 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		85058F6E21B15BFB000A4207 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		DFEE767EDA7EF0110F116983 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B6C37F137CD317740822B8C /* libPods-SLAVCam.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85058F4A21B15B4B000A4207 /* SLAVCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85058F6121B15B4E000A4207 /* Build configuration list for PBXNativeTarget "SLAVCam" */;
+			buildPhases = (
+				2DBA3AE29954EED7BBFE75EC /* [CP] Check Pods Manifest.lock */,
+				85058F4721B15B4B000A4207 /* Sources */,
+				85058F4821B15B4B000A4207 /* Frameworks */,
+				85058F4921B15B4B000A4207 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SLAVCam;
+			productName = SLAVCam;
+			productReference = 85058F4B21B15B4B000A4207 /* SLAVCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85058F4321B15B4B000A4207 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Iansl;
+				TargetAttributes = {
+					85058F4A21B15B4B000A4207 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 85058F4621B15B4B000A4207 /* Build configuration list for PBXProject "SLAVCam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85058F4221B15B4B000A4207;
+			productRefGroup = 85058F4C21B15B4B000A4207 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85058F4A21B15B4B000A4207 /* SLAVCam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85058F4921B15B4B000A4207 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85058F5B21B15B4E000A4207 /* LaunchScreen.storyboard in Resources */,
+				85058F5821B15B4E000A4207 /* Assets.xcassets in Resources */,
+				85058F5621B15B4B000A4207 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DBA3AE29954EED7BBFE75EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SLAVCam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85058F4721B15B4B000A4207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85058F5321B15B4B000A4207 /* ViewController.m in Sources */,
+				85058F5E21B15B4E000A4207 /* main.m in Sources */,
+				85058F5021B15B4B000A4207 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85058F5421B15B4B000A4207 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85058F5521B15B4B000A4207 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85058F5921B15B4E000A4207 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85058F5A21B15B4E000A4207 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85058F5F21B15B4E000A4207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		85058F6021B15B4E000A4207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85058F6221B15B4E000A4207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E141C1136DA3799CED2877F4 /* Pods-SLAVCam.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R42UH92TRF;
+				INFOPLIST_FILE = SLAVCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cslmark.SLAVCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85058F6321B15B4E000A4207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AED8AA3C3B00F2FE54C5D8F0 /* Pods-SLAVCam.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R42UH92TRF;
+				INFOPLIST_FILE = SLAVCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cslmark.SLAVCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85058F4621B15B4B000A4207 /* Build configuration list for PBXProject "SLAVCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85058F5F21B15B4E000A4207 /* Debug */,
+				85058F6021B15B4E000A4207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85058F6121B15B4E000A4207 /* Build configuration list for PBXNativeTarget "SLAVCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85058F6221B15B4E000A4207 /* Debug */,
+				85058F6321B15B4E000A4207 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85058F4321B15B4B000A4207 /* Project object */;
+}
