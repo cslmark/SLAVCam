@@ -1,16 +1,20 @@
 PODS:
   - Masonry (1.1.0)
+  - SCRecorder (2.7.0)
 
 DEPENDENCIES:
   - Masonry (~> 1.1.0)
+  - SCRecorder (~> 2.7.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Masonry
+    - SCRecorder
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SCRecorder: bbb521dbc222908876ec9cd9156bbc8a893bed44
 
-PODFILE CHECKSUM: 7f4e644ffc025d6f8e9c4a986bba0236b73768db
+PODFILE CHECKSUM: 727d0157e64c6fd2811784f7b0b3cd388749edb2
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

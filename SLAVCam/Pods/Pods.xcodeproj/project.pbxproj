@@ -7,88 +7,224 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		100DCBFE39E91CF7A296FABFAB4D7CC6 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 915A6FF0E04F5A5C0ACDE0E32BD2F193 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F28AEAAF722BC62BF5B37D6663BBC2 /* MASViewAttribute.m */; };
-		214DF0B6664033C87D6B846599FB477A /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E158FC65C5404E098F16E26F478DA504 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C02266037F030E22468AC86802DB57 /* MASViewConstraint.m */; };
-		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C762C4F3A304C10AF7EBEA6AAA8508A0 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		46B538AFD3B41E0E9E53F78C76D65AA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		523F69012549DCADB26D11EFB6593B5B /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0384F145CF471A951BA8E9486AD626 /* Masonry.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5EBFADB0ACACA114B98082EBD8FDA650 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 043FB94CF93050E20D8E4C071ACFA5D2 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EC6EDDDD3E503C5B2E967D3FEECFEB /* MASCompositeConstraint.m */; };
-		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A231E76AF7DC6CB887B5B2C522A7A /* Masonry-dummy.m */; };
-		6FBEF9BEF976F73220F5EA0246FA6674 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3162AC8E29FA7F3BF0D8641F7F4D9B60 /* MASConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7AC0D0965486ED43C064F1BC177ACBC9 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1321572A3ED9C894C94A131BE29B81B2 /* MASUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8229525E7067F22D3977D2628DF5F2C3 /* NSArray+MASAdditions.m */; };
-		81C1291C7ABA4942277F5756671AEE37 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E2395DA2EBCF6241A0DA0E1859FF45 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		86B2DF4CC6E598AAA73D0CC6EEBA0E96 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FA891F8E85C079B4FB101DDD5BC7A477 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F937BDEB8DF93A08D20C5355C0FDB5C /* MASConstraint.m */; };
-		92711327ED7920702A69A828271279AE /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A9F610CB90E57B81F8F7DCA2176E0FD /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 807FFD255E8235D5B42FE078299B5F1B /* MASLayoutConstraint.m */; };
-		9AB27A7F752AB644728D50B0228A070E /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = B48867DE203BCF3BB3DFCAB8FDC7516B /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9BFAE06AC2F3B426C64EEDBF8C99A69E /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B179F4D3D34A3CE25A698B8D9AC9D6C2 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC2A09AC3DCD0E4A3D268DAABC5135 /* View+MASAdditions.m */; };
-		B047A29701572C3C03CBEC219E195367 /* Pods-SLAVCam-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4255EF03E48C1D827262C292EB79AF6F /* Pods-SLAVCam-dummy.m */; };
-		B5EC5518E18B05A5334C49ABBF4C78F7 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 780A86CEB0A0131C88BE12414D500734 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C6E83C10646E2DF6C83A578CE6AF0E5A /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E7E17DB5590A8C4D9625D67E6FBD243 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CED739CF35B6D0A1D95AE17D712A7F /* ViewController+MASAdditions.m */; };
-		DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AB44751192F0AA8DA5F75A06138D15 /* MASConstraintMaker.m */; };
-		F861D2DADCE8A8F94F1DCB22EB8A6CE2 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 475326F2A929CD1AFFB74850961F32C0 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		FB2D6684809FC69FE060B456E307F0D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
-		FB415F79751F1A1F2203183C3CEE0723 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FBE23E70FF64ACC81816A368E171B903 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0A1C7A792CF4C0CB46FDCAF21C08324A /* SCAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 303315DF99B09A88B66412D18FB44211 /* SCAudioConfiguration.m */; };
+		0E40EABB3DBBD326B527F8FE99243E98 /* SCImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C47DE2C936C80AE46C38638F4635DFB /* SCImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		100DCBFE39E91CF7A296FABFAB4D7CC6 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = FBC4F9FBEEEBC3E6D7F8CF9F12DD6251 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		11C1FA6CF7DB3650CD38F4C78380D64E /* SCRecordSession_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 29DFAC94988A05F946420BB7413215EB /* SCRecordSession_Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		12FC62A519930A6714690C294407004E /* SCWeakSelectorTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 779CC12ADA69BE69CDC3358EFD405157 /* SCWeakSelectorTarget.m */; };
+		13635B78121B99E5C03C92506A161607 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8E37AD2109448EB167945F4E0486 /* MASViewAttribute.m */; };
+		13EE09A0B85FBF69A1C510C745AC2CB4 /* SCVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE79EDC380BDEA3371213B66EA35B1E /* SCVideoConfiguration.m */; };
+		166F3D3603BB53341AE4A906924F0A06 /* SCFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A15D2EA457A0EFC49A6B708819E53229 /* SCFilter.m */; };
+		214DF0B6664033C87D6B846599FB477A /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D92DE2CEAD710A6F717B0D246811E9B /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2289A7DB304B92B994EB3C13F741A83F /* SCRecorderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 23A57AE114A591A8E8B4F11FC0C8CFDE /* SCRecorderDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		23908DA5504FEABBF05F6EFBC07F05BC /* SCRecorderFocusTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CA0A194C10DB33CE563B72E1BF0ABB /* SCRecorderFocusTargetView.m */; };
+		2647ECA41EA4F092B4F602A56CD901F3 /* SCFilterImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = AA346FB0B8B34CA6685D01E44E63BD0C /* SCFilterImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B36751DB8C0961F339AC79B045F4F80 /* SCRecordSessionSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 31212976D45C561D2310A20D03FFDA04 /* SCRecordSessionSegment.m */; };
+		2BA75C02E5263FD1892E96B806769226 /* Pods-SLAVCam-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4255EF03E48C1D827262C292EB79AF6F /* Pods-SLAVCam-dummy.m */; };
+		2CF514154BFCB533982E4FB29BCEFC6A /* SCRecorder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A5663F271AFDEFD63C59685F1FDE9299 /* SCRecorder-dummy.m */; };
+		2D4018D82992F81D23B217C1F39CC67D /* SCWeakSelectorTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF949CA97087F67C96CEB3F6E7966E4 /* SCWeakSelectorTarget.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2DBB74B8B5DDB1F621433DD12BF35102 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3469EE01BC9992BEC560559D5AA77F2F /* MASViewConstraint.m */; };
+		2E471A7F556ED4C8917ADC239583265A /* SCContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C99CF17CA66B676AE3743C6E5DC01CA /* SCContext.m */; };
+		3708E8D9BB1F7FCB3663A64C33A7B7C2 /* SCProcessingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632A49A38EDA44134E1E93B7288232F /* SCProcessingQueue.m */; };
+		37154D6941081CB170C23501EE9C9D39 /* SCRecorderTools.h in Headers */ = {isa = PBXBuildFile; fileRef = C63B250AA390EA3E61D538234BA0142C /* SCRecorderTools.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		397FFD54A337D6A6F997A0F180EBB1AC /* SCFilter+VideoComposition.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FF3416AA14B3F746F8EFD7AA60BFA4 /* SCFilter+VideoComposition.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3B646C1B71068FF34031DCA50978A06A /* SCVideoPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 73221717693E766741D26B97C7DEBEA5 /* SCVideoPlayerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328557803AF69F986490A7F4C90C11B /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		44393663EC57CEF719440B4857D1ACAD /* SCAssetExportSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E090D9FAA6FCAECA6B0369E069C1F77 /* SCAssetExportSession.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4461580029D0CFCB6DA4473DEC6F8769 /* SCMediaTypeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB164C3CFC8D6AA602C806D86773296 /* SCMediaTypeConfiguration.m */; };
+		464B48883AA9A96455A77FD2753FAC6B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEE77C30CADE29D0363F1A36F5E98E4 /* AVFoundation.framework */; };
+		46B538AFD3B41E0E9E53F78C76D65AA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BF5E9D68EAC528D8EBCD934CA1A933 /* Foundation.framework */; };
+		4F2E9B1372C35EFE3AF801FCF2FC00E7 /* SCAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = B5653CA80DF42D3FD1EE1043862FA0B4 /* SCAssetExportSession.m */; };
+		523F69012549DCADB26D11EFB6593B5B /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = D9371745EDAB342CED75F6A67DA5304B /* Masonry.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		54CCCFE5B230A25D9DB298499812137C /* SCAudioTools.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EE020FC0C14135B64A937CBDDD951 /* SCAudioTools.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		585EDEE7E93F204E5410542042D10E7A /* SCIOPixelBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = D002933CA9E7DC93C7529DA45982FB6F /* SCIOPixelBuffers.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5C49D0C8E1528D1B471E067D6690BDBA /* SCSampleBufferHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = F7BFDE231A867B0F26C444F1EF8B2B07 /* SCSampleBufferHolder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5DE83EF2F1B216B1FCE8D1915626D292 /* SCFilterAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B3745DF7095004D386DC14159CCDD4CA /* SCFilterAnimation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5EBFADB0ACACA114B98082EBD8FDA650 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = BBB7F993EA472CCC11F5E44E468ACC38 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		61CCEA01CBE8EFFA5515E7A0D8635AAE /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA79FEA3ED19EE5F650E3EE281E0ABD /* MASCompositeConstraint.m */; };
+		64EA0E198DC6C5733430E156B4328A7D /* SCSwipeableFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F6D6FAE549F8A9378CF70C6134D4D9 /* SCSwipeableFilterView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		67967496CF1DDC50EF1A322FE3A1BA8A /* SCRecordSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C739529FD011E367FC192DBF90C840 /* SCRecordSession.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		68F98758BA84B8EC3472A8C6FD646D16 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B4422FC3C42CADEDF57DDC665D0558BE /* Masonry-dummy.m */; };
+		6CD0EC4C8D291151AC666A2B935DA96F /* SCFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421559BA6F4F1D635797F7BC7C44D3D4 /* SCFilterImageView.m */; };
+		6FBEF9BEF976F73220F5EA0246FA6674 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 58EE9CC9C56FE3B03D19A357D77641A4 /* MASConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		709D757BE3BD9169C0E22F256AEDF161 /* SCRecorderHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4366F8BB3BC1B390F35E7F40544092F6 /* SCRecorderHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		72609D6E028100A869B81F870D93F98E /* SCFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A620AFE52EB4B03DF51BD4DC2BFF10A /* SCFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7457E805326A82AD2C507190AEF100A2 /* SCRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A49F1A37E5D92B95FE64C698918D83C /* SCRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		75A29C7D4C44B55E103A275689E61D32 /* SCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4BCBDF893AE5CCD898FEE407CC70E1 /* SCVideoPlayerView.m */; };
+		7AC0D0965486ED43C064F1BC177ACBC9 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8086AF6AF0F4A34E5939A5E10BAC7751 /* MASUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7B422A444C59B809F22264870A55E9B6 /* SCRecorderTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F01BD655031505822B40E2799FF7C845 /* SCRecorderTools.m */; };
+		7B9D8DE17ED256FCD5B83D47AB113906 /* SCProcessingQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D5F9934CDAD52133D26702C8DDC099 /* SCProcessingQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7BDDE51AF16FA53A09506EDB91E1C3C2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A9F08A3A1BA85AF72A9B39E8976DB /* NSArray+MASAdditions.m */; };
+		8155C55F87A2B789752E86339DEA040A /* SCRecorderToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B92F445E58EB8CEB823CF04A244AEA /* SCRecorderToolsView.m */; };
+		81C1291C7ABA4942277F5756671AEE37 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA8CC266E691919BAD8BA3D4352C06C /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		84D97AFE205A31D2D8EBED7EBCAF34FA /* SCRecordSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB222A9FDEBF68B69E375F69E23BF15 /* SCRecordSession.m */; };
+		86B2DF4CC6E598AAA73D0CC6EEBA0E96 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 97EEFD2EC1460B3DB61022AA4F842534 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89450A58FD91E5B227171FC75160E4EA /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 26156F16114772FC5BBCF5CB65F767E5 /* MASConstraint.m */; };
+		8D4C43DABDF718D94ADA56CACC24CB77 /* SCFilterAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDBCF863A83A834000BE5EEF293D8A1 /* SCFilterAnimation.m */; };
+		8F101B053D0887DBE7EAA1DF2257839D /* SCPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FE9ABBC1E55118CA933A3C976BB9470 /* SCPlayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92711327ED7920702A69A828271279AE /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6718EFA7A8EB6E167063D094A68F7546 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92FC3F0CED5DE8C86A5D206057FB3A1A /* SCMediaTypeConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = F30471562728A0E73F357F3C9E331DA0 /* SCMediaTypeConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		938921A131E98A6245B9FDD90E029D63 /* SCFilter+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A7CFEC257818F6524D3E9D63228CEF /* SCFilter+UIImage.m */; };
+		95340FF5BB2435534F0760029515B897 /* SCRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0762EF8200990F7148035FEE58BD5F /* SCRecorder.m */; };
+		955BE39896CA35F2A585DC3309E5FDA5 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E25817CD4E18A1EC22D26563AE6CE4D2 /* MASLayoutConstraint.m */; };
+		97ACC92F38111BA5B50DD7BE0BE7834A /* SCAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0065216DFEF829636CAA1614353D11 /* SCAudioTools.m */; };
+		9AB27A7F752AB644728D50B0228A070E /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D45AFE362E904A9DC60849DD47E1DA5 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9BFAE06AC2F3B426C64EEDBF8C99A69E /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B5ACEF2FB6779245084D7355A1B8ADF /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9F4D1D7B25074B42A324B773C8795F2D /* SCFilter+UIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = F7838171FDB76A3332E69A1DAA2FE05D /* SCFilter+UIImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A1FA046FDFC42676D17FEC387B10D24A /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5422EFDC1CD3D1DDAF326328BEF0C27 /* View+MASAdditions.m */; };
+		A53302281F34345C1B7F1D15F641B656 /* UIImage+SCSaveToCameraRoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 443BFBA624438926B2D3115989C767E3 /* UIImage+SCSaveToCameraRoll.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A55DA683BC7A8A1A607E8AD6D29DC87C /* SCPhotoConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 3311737848CCD25A5B12D33E87121012 /* SCPhotoConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A9D733890D7B3AB289FC30FB664C5CF3 /* SCFilter+VideoComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB06D095C13FB7397B754EE42A99351 /* SCFilter+VideoComposition.m */; };
+		ABE87A682E45C5D5F4EA0298F9A7049E /* SCRecorderToolsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 068F81F68441B0BFC018E412AB7F7446 /* SCRecorderToolsView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B0657C6007F972B499840566766FFB63 /* NSURL+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BB0CBF047B80F0FED9B736480CE0F7 /* NSURL+SCSaveToCameraRoll.m */; };
+		B53DD7064FE43020045E5343BFD8B13A /* SCPhotoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E474502176194D9AF8472F2924409E20 /* SCPhotoConfiguration.m */; };
+		B5EC5518E18B05A5334C49ABBF4C78F7 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 334A729B71884B4231014FAB198142DE /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B5F9B4508218BD1F5AA55550190B43EA /* SCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BF58D887CC50DF45E348BAEFCAA02D /* SCPlayer.m */; };
+		B6C4C99C1E05A60A563425B3D3E70FB3 /* UIImage+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = DE607A1440DF62F6DD9C567C1E6B4F18 /* UIImage+SCSaveToCameraRoll.m */; };
+		C33CAC678113B30631CF6FBD9B44DC01 /* SCVideoConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B1590533821816E4131A8343D881D3A5 /* SCVideoConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C6E83C10646E2DF6C83A578CE6AF0E5A /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F2DFEAC2A56659DF82664F9A6146AF17 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D5AE9A7A344BD6669899C91785E1E25A /* SCSampleBufferHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE24832950ACB18A02981C41B1E22C /* SCSampleBufferHolder.m */; };
+		D6092BA143226271D3523577B87C42AA /* SCSaveToCameraRollOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B44B9F3051E2FF4CE933706568916D98 /* SCSaveToCameraRollOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D71619917A218A1806DD06BA7E9218FE /* SCIOPixelBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = 48003D8CB91532813C88FE9F73EE367B /* SCIOPixelBuffers.m */; };
+		D7CE05A743B7ACD50796191FA442814C /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 372F96A50A10E656B4C95605FA34CC64 /* ViewController+MASAdditions.m */; };
+		D8C096C0931ECD7F5931F5C11B695120 /* SCSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA028F5A1BCC3A4AA96A83C00D0E350 /* SCSaveToCameraRollOperation.m */; };
+		DF7F88B58B564EDF169EC0C9CF8E5124 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65936127AF2485B40352B615501E5E80 /* MASConstraintMaker.m */; };
+		DFFDC251E165781BFB6B3078E5F45DEC /* SCSwipeableFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3AD3C6DDC9817B6ED72A178B32C92 /* SCSwipeableFilterView.m */; };
+		E50256A9194280C4FF34826C8CAC8A61 /* SCContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1F0F2DE6FD7CC830EF6A4D6E39B67E /* SCContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E6E94BE980EB2CECE6989C5BC6239124 /* SCAudioConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C9D18A96B9A6FA1537AD8DCF10A9493F /* SCAudioConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E89F51549E35DD7E3CC20D8DC7380D62 /* SCRecorderFocusTargetView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A7FAED709CC0A0758CEE3420BB6AC32 /* SCRecorderFocusTargetView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EA90D186C9C2C27C34F4D1CBADA75742 /* SCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D54E1EF65C8BD7997D6B6D1491A3F80 /* SCImageView.m */; };
+		EC245D9D7FCB458E3F7AD052ABE9498C /* NSURL+SCSaveToCameraRoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DC5D3BA1182EBD618166C111B647F75 /* NSURL+SCSaveToCameraRoll.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F05A911CB7B2DE6E218A946389A1D8EE /* SCRecordSessionSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E755C2E6F56AC246F8EB1189CDC3D35 /* SCRecordSessionSegment.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F861D2DADCE8A8F94F1DCB22EB8A6CE2 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 84909ECD343E575DE45CEA06D149893E /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FB2D6684809FC69FE060B456E307F0D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA12E98CA9F3F0E6B3E8B17E0B954C58 /* UIKit.framework */; };
+		FB415F79751F1A1F2203183C3CEE0723 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DD644FC3C10292B8A304A4399EFB6B87 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C69FDB1ADC4FA7739FBC77E848CCC5B2 /* PBXContainerItemProxy */ = {
+		4EB2C8A00350E0C620786A98DA5BAD26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9DC8D9E02903E93BD0B2FEC9D846EA20;
 			remoteInfo = Masonry;
 		};
+		9522B5CB293BDDC11A768CB3CA614346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5AC1A80FCE9872F916B3025CDA757E2;
+			remoteInfo = SCRecorder;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		043FB94CF93050E20D8E4C071ACFA5D2 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
-		09C2F4C5DFB1E96B730217CD1AFDF468 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1321572A3ED9C894C94A131BE29B81B2 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		0328557803AF69F986490A7F4C90C11B /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		068F81F68441B0BFC018E412AB7F7446 /* SCRecorderToolsView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorderToolsView.h; path = Library/Sources/SCRecorderToolsView.h; sourceTree = "<group>"; };
+		0A7FAED709CC0A0758CEE3420BB6AC32 /* SCRecorderFocusTargetView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorderFocusTargetView.h; path = Library/Sources/SCRecorderFocusTargetView.h; sourceTree = "<group>"; };
+		0A8A9F08A3A1BA85AF72A9B39E8976DB /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		13F6D6FAE549F8A9378CF70C6134D4D9 /* SCSwipeableFilterView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSwipeableFilterView.h; path = Library/Sources/SCSwipeableFilterView.h; sourceTree = "<group>"; };
+		16CE61FF8A77E947CED7B52F98141D3F /* SCRecorder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCRecorder.xcconfig; sourceTree = "<group>"; };
 		182C40F617C305755A1F0D7B5FCE42A0 /* Pods-SLAVCam-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SLAVCam-frameworks.sh"; sourceTree = "<group>"; };
+		1AE79EDC380BDEA3371213B66EA35B1E /* SCVideoConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCVideoConfiguration.m; path = Library/Sources/SCVideoConfiguration.m; sourceTree = "<group>"; };
 		1CA61813670FF1A9C5B84A59760C69C3 /* Pods-SLAVCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SLAVCam.release.xcconfig"; sourceTree = "<group>"; };
-		22E2395DA2EBCF6241A0DA0E1859FF45 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		25CED739CF35B6D0A1D95AE17D712A7F /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		2FCC2A09AC3DCD0E4A3D268DAABC5135 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		1CE3AD3C6DDC9817B6ED72A178B32C92 /* SCSwipeableFilterView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSwipeableFilterView.m; path = Library/Sources/SCSwipeableFilterView.m; sourceTree = "<group>"; };
+		1DC5D3BA1182EBD618166C111B647F75 /* NSURL+SCSaveToCameraRoll.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURL+SCSaveToCameraRoll.h"; path = "Library/Sources/NSURL+SCSaveToCameraRoll.h"; sourceTree = "<group>"; };
+		1E3BA5B5779EB9EBAE6CE3472FB39F77 /* libPods-SLAVCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SLAVCam.a"; path = "libPods-SLAVCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A57AE114A591A8E8B4F11FC0C8CFDE /* SCRecorderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorderDelegate.h; path = Library/Sources/SCRecorderDelegate.h; sourceTree = "<group>"; };
+		26156F16114772FC5BBCF5CB65F767E5 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		29DFAC94988A05F946420BB7413215EB /* SCRecordSession_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecordSession_Internal.h; path = Library/Sources/SCRecordSession_Internal.h; sourceTree = "<group>"; };
+		2BF949CA97087F67C96CEB3F6E7966E4 /* SCWeakSelectorTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCWeakSelectorTarget.h; path = Library/Sources/SCWeakSelectorTarget.h; sourceTree = "<group>"; };
+		2E755C2E6F56AC246F8EB1189CDC3D35 /* SCRecordSessionSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecordSessionSegment.h; path = Library/Sources/SCRecordSessionSegment.h; sourceTree = "<group>"; };
+		2FE9ABBC1E55118CA933A3C976BB9470 /* SCPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCPlayer.h; path = Library/Sources/SCPlayer.h; sourceTree = "<group>"; };
+		303315DF99B09A88B66412D18FB44211 /* SCAudioConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCAudioConfiguration.m; path = Library/Sources/SCAudioConfiguration.m; sourceTree = "<group>"; };
 		30FA3C1BFC77DF604A903342CB362DB5 /* Pods-SLAVCam-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SLAVCam-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3162AC8E29FA7F3BF0D8641F7F4D9B60 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		31212976D45C561D2310A20D03FFDA04 /* SCRecordSessionSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecordSessionSegment.m; path = Library/Sources/SCRecordSessionSegment.m; sourceTree = "<group>"; };
+		3311737848CCD25A5B12D33E87121012 /* SCPhotoConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCPhotoConfiguration.h; path = Library/Sources/SCPhotoConfiguration.h; sourceTree = "<group>"; };
+		334A729B71884B4231014FAB198142DE /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		3469EE01BC9992BEC560559D5AA77F2F /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		372F96A50A10E656B4C95605FA34CC64 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		3A49F1A37E5D92B95FE64C698918D83C /* SCRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorder.h; path = Library/Sources/SCRecorder.h; sourceTree = "<group>"; };
+		3B1F0F2DE6FD7CC830EF6A4D6E39B67E /* SCContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCContext.h; path = Library/Sources/SCContext.h; sourceTree = "<group>"; };
+		3B4A8E37AD2109448EB167945F4E0486 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		3C47DE2C936C80AE46C38638F4635DFB /* SCImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCImageView.h; path = Library/Sources/SCImageView.h; sourceTree = "<group>"; };
+		3D0065216DFEF829636CAA1614353D11 /* SCAudioTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCAudioTools.m; path = Library/Sources/SCAudioTools.m; sourceTree = "<group>"; };
+		3D54E1EF65C8BD7997D6B6D1491A3F80 /* SCImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCImageView.m; path = Library/Sources/SCImageView.m; sourceTree = "<group>"; };
+		421559BA6F4F1D635797F7BC7C44D3D4 /* SCFilterImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCFilterImageView.m; path = Library/Sources/SCFilterImageView.m; sourceTree = "<group>"; };
 		4255EF03E48C1D827262C292EB79AF6F /* Pods-SLAVCam-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SLAVCam-dummy.m"; sourceTree = "<group>"; };
-		475326F2A929CD1AFFB74850961F32C0 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		4366F8BB3BC1B390F35E7F40544092F6 /* SCRecorderHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorderHeader.h; path = Library/Sources/SCRecorderHeader.h; sourceTree = "<group>"; };
+		443BFBA624438926B2D3115989C767E3 /* UIImage+SCSaveToCameraRoll.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCSaveToCameraRoll.h"; path = "Library/Sources/UIImage+SCSaveToCameraRoll.h"; sourceTree = "<group>"; };
+		48003D8CB91532813C88FE9F73EE367B /* SCIOPixelBuffers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCIOPixelBuffers.m; path = Library/Sources/SCIOPixelBuffers.m; sourceTree = "<group>"; };
+		4A620AFE52EB4B03DF51BD4DC2BFF10A /* SCFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCFilter.h; path = Library/Sources/SCFilter.h; sourceTree = "<group>"; };
+		4CB164C3CFC8D6AA602C806D86773296 /* SCMediaTypeConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCMediaTypeConfiguration.m; path = Library/Sources/SCMediaTypeConfiguration.m; sourceTree = "<group>"; };
+		5632A49A38EDA44134E1E93B7288232F /* SCProcessingQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCProcessingQueue.m; path = Library/Sources/SCProcessingQueue.m; sourceTree = "<group>"; };
+		58EE9CC9C56FE3B03D19A357D77641A4 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		5D924D84B845F5809AC6F5B11484E2F1 /* libSCRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSCRecorder.a; path = libSCRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D92DE2CEAD710A6F717B0D246811E9B /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		5FA8CC266E691919BAD8BA3D4352C06C /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		65936127AF2485B40352B615501E5E80 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		6718EFA7A8EB6E167063D094A68F7546 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		69CA0A194C10DB33CE563B72E1BF0ABB /* SCRecorderFocusTargetView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecorderFocusTargetView.m; path = Library/Sources/SCRecorderFocusTargetView.m; sourceTree = "<group>"; };
+		6AA028F5A1BCC3A4AA96A83C00D0E350 /* SCSaveToCameraRollOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSaveToCameraRollOperation.m; path = Library/Sources/SCSaveToCameraRollOperation.m; sourceTree = "<group>"; };
+		6DA79FEA3ED19EE5F650E3EE281E0ABD /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
+		6FEE77C30CADE29D0363F1A36F5E98E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		73221717693E766741D26B97C7DEBEA5 /* SCVideoPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCVideoPlayerView.h; path = Library/Sources/SCVideoPlayerView.h; sourceTree = "<group>"; };
 		763A8FC9EB6E9756A7F68C4038F1DBDF /* Pods-SLAVCam-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SLAVCam-acknowledgements.plist"; sourceTree = "<group>"; };
-		780A86CEB0A0131C88BE12414D500734 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		7882AB8492CA4F59F730C76CC3BBF57A /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
-		7B5A231E76AF7DC6CB887B5B2C522A7A /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		807FFD255E8235D5B42FE078299B5F1B /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
-		8229525E7067F22D3977D2628DF5F2C3 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		82F28AEAAF722BC62BF5B37D6663BBC2 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		8A9F610CB90E57B81F8F7DCA2176E0FD /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		779CC12ADA69BE69CDC3358EFD405157 /* SCWeakSelectorTarget.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCWeakSelectorTarget.m; path = Library/Sources/SCWeakSelectorTarget.m; sourceTree = "<group>"; };
+		7D45AFE362E904A9DC60849DD47E1DA5 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		8086AF6AF0F4A34E5939A5E10BAC7751 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
+		80BF9208275561E9FA74EAFDE0F07E04 /* SCRecorder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCRecorder-prefix.pch"; sourceTree = "<group>"; };
+		84909ECD343E575DE45CEA06D149893E /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		84FF3416AA14B3F746F8EFD7AA60BFA4 /* SCFilter+VideoComposition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCFilter+VideoComposition.h"; path = "Library/Sources/SCFilter+VideoComposition.h"; sourceTree = "<group>"; };
+		85C739529FD011E367FC192DBF90C840 /* SCRecordSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecordSession.h; path = Library/Sources/SCRecordSession.h; sourceTree = "<group>"; };
+		88B92F445E58EB8CEB823CF04A244AEA /* SCRecorderToolsView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecorderToolsView.m; path = Library/Sources/SCRecorderToolsView.m; sourceTree = "<group>"; };
+		88D5F9934CDAD52133D26702C8DDC099 /* SCProcessingQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCProcessingQueue.h; path = Library/Sources/SCProcessingQueue.h; sourceTree = "<group>"; };
+		8AB222A9FDEBF68B69E375F69E23BF15 /* SCRecordSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecordSession.m; path = Library/Sources/SCRecordSession.m; sourceTree = "<group>"; };
+		8C99CF17CA66B676AE3743C6E5DC01CA /* SCContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCContext.m; path = Library/Sources/SCContext.m; sourceTree = "<group>"; };
 		8E2F8BBFAF92BD6FEF4256FD9E857DBA /* Pods-SLAVCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SLAVCam.debug.xcconfig"; sourceTree = "<group>"; };
-		8E7E17DB5590A8C4D9625D67E6FBD243 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
-		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		909AC17B512F0928BCC6EEF1E6E4EB57 /* libPods-SLAVCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SLAVCam.a"; path = "libPods-SLAVCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		915A6FF0E04F5A5C0ACDE0E32BD2F193 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F937BDEB8DF93A08D20C5355C0FDB5C /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		A2F75C96947B2651F82FC18F66C43B49 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
-		B179F4D3D34A3CE25A698B8D9AC9D6C2 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		B48867DE203BCF3BB3DFCAB8FDC7516B /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
-		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		C762C4F3A304C10AF7EBEA6AAA8508A0 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		C7C02266037F030E22468AC86802DB57 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		D5EC6EDDDD3E503C5B2E967D3FEECFEB /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
-		E158FC65C5404E098F16E26F478DA504 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		97EEFD2EC1460B3DB61022AA4F842534 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		9B5ACEF2FB6779245084D7355A1B8ADF /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		9E090D9FAA6FCAECA6B0369E069C1F77 /* SCAssetExportSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCAssetExportSession.h; path = Library/Sources/SCAssetExportSession.h; sourceTree = "<group>"; };
+		A0EE24832950ACB18A02981C41B1E22C /* SCSampleBufferHolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSampleBufferHolder.m; path = Library/Sources/SCSampleBufferHolder.m; sourceTree = "<group>"; };
+		A10C0DC53376175EF7B0309026C2F410 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A15D2EA457A0EFC49A6B708819E53229 /* SCFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCFilter.m; path = Library/Sources/SCFilter.m; sourceTree = "<group>"; };
+		A5663F271AFDEFD63C59685F1FDE9299 /* SCRecorder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCRecorder-dummy.m"; sourceTree = "<group>"; };
+		A74EE020FC0C14135B64A937CBDDD951 /* SCAudioTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCAudioTools.h; path = Library/Sources/SCAudioTools.h; sourceTree = "<group>"; };
+		A9BB0CBF047B80F0FED9B736480CE0F7 /* NSURL+SCSaveToCameraRoll.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURL+SCSaveToCameraRoll.m"; path = "Library/Sources/NSURL+SCSaveToCameraRoll.m"; sourceTree = "<group>"; };
+		AA346FB0B8B34CA6685D01E44E63BD0C /* SCFilterImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCFilterImageView.h; path = Library/Sources/SCFilterImageView.h; sourceTree = "<group>"; };
+		AEDBCF863A83A834000BE5EEF293D8A1 /* SCFilterAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCFilterAnimation.m; path = Library/Sources/SCFilterAnimation.m; sourceTree = "<group>"; };
+		B1590533821816E4131A8343D881D3A5 /* SCVideoConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCVideoConfiguration.h; path = Library/Sources/SCVideoConfiguration.h; sourceTree = "<group>"; };
+		B3745DF7095004D386DC14159CCDD4CA /* SCFilterAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCFilterAnimation.h; path = Library/Sources/SCFilterAnimation.h; sourceTree = "<group>"; };
+		B4422FC3C42CADEDF57DDC665D0558BE /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		B44B9F3051E2FF4CE933706568916D98 /* SCSaveToCameraRollOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSaveToCameraRollOperation.h; path = Library/Sources/SCSaveToCameraRollOperation.h; sourceTree = "<group>"; };
+		B5653CA80DF42D3FD1EE1043862FA0B4 /* SCAssetExportSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCAssetExportSession.m; path = Library/Sources/SCAssetExportSession.m; sourceTree = "<group>"; };
+		BBB7F993EA472CCC11F5E44E468ACC38 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		BF4BCBDF893AE5CCD898FEE407CC70E1 /* SCVideoPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCVideoPlayerView.m; path = Library/Sources/SCVideoPlayerView.m; sourceTree = "<group>"; };
+		C3BF58D887CC50DF45E348BAEFCAA02D /* SCPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCPlayer.m; path = Library/Sources/SCPlayer.m; sourceTree = "<group>"; };
+		C483CDD1AA5F5CD2BCC6C294A33DC8C1 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		C63B250AA390EA3E61D538234BA0142C /* SCRecorderTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCRecorderTools.h; path = Library/Sources/SCRecorderTools.h; sourceTree = "<group>"; };
+		C6A7CFEC257818F6524D3E9D63228CEF /* SCFilter+UIImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SCFilter+UIImage.m"; path = "Library/Sources/SCFilter+UIImage.m"; sourceTree = "<group>"; };
+		C9D18A96B9A6FA1537AD8DCF10A9493F /* SCAudioConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCAudioConfiguration.h; path = Library/Sources/SCAudioConfiguration.h; sourceTree = "<group>"; };
+		CCB06D095C13FB7397B754EE42A99351 /* SCFilter+VideoComposition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SCFilter+VideoComposition.m"; path = "Library/Sources/SCFilter+VideoComposition.m"; sourceTree = "<group>"; };
+		D002933CA9E7DC93C7529DA45982FB6F /* SCIOPixelBuffers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCIOPixelBuffers.h; path = Library/Sources/SCIOPixelBuffers.h; sourceTree = "<group>"; };
+		D9371745EDAB342CED75F6A67DA5304B /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		DC0762EF8200990F7148035FEE58BD5F /* SCRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecorder.m; path = Library/Sources/SCRecorder.m; sourceTree = "<group>"; };
+		DD644FC3C10292B8A304A4399EFB6B87 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		DE607A1440DF62F6DD9C567C1E6B4F18 /* UIImage+SCSaveToCameraRoll.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCSaveToCameraRoll.m"; path = "Library/Sources/UIImage+SCSaveToCameraRoll.m"; sourceTree = "<group>"; };
+		DFCED877C812AA7AAFC3C87740D0AC9A /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		E21D1D1BE7E7462A392622059C0DA208 /* Pods-SLAVCam-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SLAVCam-resources.sh"; sourceTree = "<group>"; };
-		EC0384F145CF471A951BA8E9486AD626 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		F8AB44751192F0AA8DA5F75A06138D15 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		FA891F8E85C079B4FB101DDD5BC7A477 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		FBE23E70FF64ACC81816A368E171B903 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		E25817CD4E18A1EC22D26563AE6CE4D2 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		E474502176194D9AF8472F2924409E20 /* SCPhotoConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCPhotoConfiguration.m; path = Library/Sources/SCPhotoConfiguration.m; sourceTree = "<group>"; };
+		E5422EFDC1CD3D1DDAF326328BEF0C27 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		EA12E98CA9F3F0E6B3E8B17E0B954C58 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F01BD655031505822B40E2799FF7C845 /* SCRecorderTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCRecorderTools.m; path = Library/Sources/SCRecorderTools.m; sourceTree = "<group>"; };
+		F2BF5E9D68EAC528D8EBCD934CA1A933 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F2DFEAC2A56659DF82664F9A6146AF17 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		F30471562728A0E73F357F3C9E331DA0 /* SCMediaTypeConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCMediaTypeConfiguration.h; path = Library/Sources/SCMediaTypeConfiguration.h; sourceTree = "<group>"; };
+		F7838171FDB76A3332E69A1DAA2FE05D /* SCFilter+UIImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SCFilter+UIImage.h"; path = "Library/Sources/SCFilter+UIImage.h"; sourceTree = "<group>"; };
+		F7BFDE231A867B0F26C444F1EF8B2B07 /* SCSampleBufferHolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSampleBufferHolder.h; path = Library/Sources/SCSampleBufferHolder.h; sourceTree = "<group>"; };
+		FBC4F9FBEEEBC3E6D7F8CF9F12DD6251 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +237,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4904767D0D1340C0BFDD9D0AEBB4B60 /* Frameworks */ = {
+		ADF0394ADAE5BD7CF93D4925C5B91AA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				464B48883AA9A96455A77FD2753FAC6B /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D76A26C9CD99A93C90CD0F2DFC340E5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,64 +255,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04810CC1E347BF08C83A987B46D09FE1 /* Products */ = {
+		0CEF6AE21748EEF05BDF013C1F96152B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				09C2F4C5DFB1E96B730217CD1AFDF468 /* libMasonry.a */,
-				909AC17B512F0928BCC6EEF1E6E4EB57 /* libPods-SLAVCam.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
-				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+				6FEE77C30CADE29D0363F1A36F5E98E4 /* AVFoundation.framework */,
+				F2BF5E9D68EAC528D8EBCD934CA1A933 /* Foundation.framework */,
+				EA12E98CA9F3F0E6B3E8B17E0B954C58 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		3B9FAC5BAEA75CAB3E20372C4D27D7EE /* Masonry */ = {
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				475326F2A929CD1AFFB74850961F32C0 /* MASCompositeConstraint.h */,
-				D5EC6EDDDD3E503C5B2E967D3FEECFEB /* MASCompositeConstraint.m */,
-				3162AC8E29FA7F3BF0D8641F7F4D9B60 /* MASConstraint.h */,
-				9F937BDEB8DF93A08D20C5355C0FDB5C /* MASConstraint.m */,
-				22E2395DA2EBCF6241A0DA0E1859FF45 /* MASConstraint+Private.h */,
-				780A86CEB0A0131C88BE12414D500734 /* MASConstraintMaker.h */,
-				F8AB44751192F0AA8DA5F75A06138D15 /* MASConstraintMaker.m */,
-				B48867DE203BCF3BB3DFCAB8FDC7516B /* MASLayoutConstraint.h */,
-				807FFD255E8235D5B42FE078299B5F1B /* MASLayoutConstraint.m */,
-				EC0384F145CF471A951BA8E9486AD626 /* Masonry.h */,
-				1321572A3ED9C894C94A131BE29B81B2 /* MASUtilities.h */,
-				915A6FF0E04F5A5C0ACDE0E32BD2F193 /* MASViewAttribute.h */,
-				82F28AEAAF722BC62BF5B37D6663BBC2 /* MASViewAttribute.m */,
-				043FB94CF93050E20D8E4C071ACFA5D2 /* MASViewConstraint.h */,
-				C7C02266037F030E22468AC86802DB57 /* MASViewConstraint.m */,
-				B179F4D3D34A3CE25A698B8D9AC9D6C2 /* NSArray+MASAdditions.h */,
-				8229525E7067F22D3977D2628DF5F2C3 /* NSArray+MASAdditions.m */,
-				FBE23E70FF64ACC81816A368E171B903 /* NSArray+MASShorthandAdditions.h */,
-				E158FC65C5404E098F16E26F478DA504 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				C762C4F3A304C10AF7EBEA6AAA8508A0 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				8E7E17DB5590A8C4D9625D67E6FBD243 /* View+MASAdditions.h */,
-				2FCC2A09AC3DCD0E4A3D268DAABC5135 /* View+MASAdditions.m */,
-				8A9F610CB90E57B81F8F7DCA2176E0FD /* View+MASShorthandAdditions.h */,
-				FA891F8E85C079B4FB101DDD5BC7A477 /* ViewController+MASAdditions.h */,
-				25CED739CF35B6D0A1D95AE17D712A7F /* ViewController+MASAdditions.m */,
-				4854BD850DB1ADEB02DE483F0C44E016 /* Support Files */,
-			);
-			name = Masonry;
-			path = Masonry;
-			sourceTree = "<group>";
-		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+				0CEF6AE21748EEF05BDF013C1F96152B /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DE9642C9CC9D2AD73BC12AC4909184A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16CE61FF8A77E947CED7B52F98141D3F /* SCRecorder.xcconfig */,
+				A5663F271AFDEFD63C59685F1FDE9299 /* SCRecorder-dummy.m */,
+				80BF9208275561E9FA74EAFDE0F07E04 /* SCRecorder-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SCRecorder";
 			sourceTree = "<group>";
 		};
 		43D1532A5FD61EAD52D3C6E313DC28F2 /* Pods-SLAVCam */ = {
@@ -186,12 +299,21 @@
 			path = "Target Support Files/Pods-SLAVCam";
 			sourceTree = "<group>";
 		};
-		4854BD850DB1ADEB02DE483F0C44E016 /* Support Files */ = {
+		4CE667908FB392D008937548DA420716 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7882AB8492CA4F59F730C76CC3BBF57A /* Masonry.xcconfig */,
-				7B5A231E76AF7DC6CB887B5B2C522A7A /* Masonry-dummy.m */,
-				A2F75C96947B2651F82FC18F66C43B49 /* Masonry-prefix.pch */,
+				FDD2F6B747E531BF4F69AF7606638744 /* Masonry */,
+				7DD39A263E7A5FF69823308572EB1422 /* SCRecorder */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		53427244A3D14F246FF51D56F3167F0F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFCED877C812AA7AAFC3C87740D0AC9A /* Masonry.xcconfig */,
+				B4422FC3C42CADEDF57DDC665D0558BE /* Masonry-dummy.m */,
+				C483CDD1AA5F5CD2BCC6C294A33DC8C1 /* Masonry-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
@@ -201,19 +323,91 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				E9B49E9D4F6BC02AA78DCF86BCED2145 /* Pods */,
-				04810CC1E347BF08C83A987B46D09FE1 /* Products */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				4CE667908FB392D008937548DA420716 /* Pods */,
+				E08808CCC4887DBA1B4ED52F21E868B8 /* Products */,
 				F3D048CB047286834DC78DA1CB1C30E0 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		E9B49E9D4F6BC02AA78DCF86BCED2145 /* Pods */ = {
+		7DD39A263E7A5FF69823308572EB1422 /* SCRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				3B9FAC5BAEA75CAB3E20372C4D27D7EE /* Masonry */,
+				1DC5D3BA1182EBD618166C111B647F75 /* NSURL+SCSaveToCameraRoll.h */,
+				A9BB0CBF047B80F0FED9B736480CE0F7 /* NSURL+SCSaveToCameraRoll.m */,
+				9E090D9FAA6FCAECA6B0369E069C1F77 /* SCAssetExportSession.h */,
+				B5653CA80DF42D3FD1EE1043862FA0B4 /* SCAssetExportSession.m */,
+				C9D18A96B9A6FA1537AD8DCF10A9493F /* SCAudioConfiguration.h */,
+				303315DF99B09A88B66412D18FB44211 /* SCAudioConfiguration.m */,
+				A74EE020FC0C14135B64A937CBDDD951 /* SCAudioTools.h */,
+				3D0065216DFEF829636CAA1614353D11 /* SCAudioTools.m */,
+				3B1F0F2DE6FD7CC830EF6A4D6E39B67E /* SCContext.h */,
+				8C99CF17CA66B676AE3743C6E5DC01CA /* SCContext.m */,
+				4A620AFE52EB4B03DF51BD4DC2BFF10A /* SCFilter.h */,
+				A15D2EA457A0EFC49A6B708819E53229 /* SCFilter.m */,
+				F7838171FDB76A3332E69A1DAA2FE05D /* SCFilter+UIImage.h */,
+				C6A7CFEC257818F6524D3E9D63228CEF /* SCFilter+UIImage.m */,
+				84FF3416AA14B3F746F8EFD7AA60BFA4 /* SCFilter+VideoComposition.h */,
+				CCB06D095C13FB7397B754EE42A99351 /* SCFilter+VideoComposition.m */,
+				B3745DF7095004D386DC14159CCDD4CA /* SCFilterAnimation.h */,
+				AEDBCF863A83A834000BE5EEF293D8A1 /* SCFilterAnimation.m */,
+				AA346FB0B8B34CA6685D01E44E63BD0C /* SCFilterImageView.h */,
+				421559BA6F4F1D635797F7BC7C44D3D4 /* SCFilterImageView.m */,
+				3C47DE2C936C80AE46C38638F4635DFB /* SCImageView.h */,
+				3D54E1EF65C8BD7997D6B6D1491A3F80 /* SCImageView.m */,
+				D002933CA9E7DC93C7529DA45982FB6F /* SCIOPixelBuffers.h */,
+				48003D8CB91532813C88FE9F73EE367B /* SCIOPixelBuffers.m */,
+				F30471562728A0E73F357F3C9E331DA0 /* SCMediaTypeConfiguration.h */,
+				4CB164C3CFC8D6AA602C806D86773296 /* SCMediaTypeConfiguration.m */,
+				3311737848CCD25A5B12D33E87121012 /* SCPhotoConfiguration.h */,
+				E474502176194D9AF8472F2924409E20 /* SCPhotoConfiguration.m */,
+				2FE9ABBC1E55118CA933A3C976BB9470 /* SCPlayer.h */,
+				C3BF58D887CC50DF45E348BAEFCAA02D /* SCPlayer.m */,
+				88D5F9934CDAD52133D26702C8DDC099 /* SCProcessingQueue.h */,
+				5632A49A38EDA44134E1E93B7288232F /* SCProcessingQueue.m */,
+				3A49F1A37E5D92B95FE64C698918D83C /* SCRecorder.h */,
+				DC0762EF8200990F7148035FEE58BD5F /* SCRecorder.m */,
+				23A57AE114A591A8E8B4F11FC0C8CFDE /* SCRecorderDelegate.h */,
+				0A7FAED709CC0A0758CEE3420BB6AC32 /* SCRecorderFocusTargetView.h */,
+				69CA0A194C10DB33CE563B72E1BF0ABB /* SCRecorderFocusTargetView.m */,
+				4366F8BB3BC1B390F35E7F40544092F6 /* SCRecorderHeader.h */,
+				C63B250AA390EA3E61D538234BA0142C /* SCRecorderTools.h */,
+				F01BD655031505822B40E2799FF7C845 /* SCRecorderTools.m */,
+				068F81F68441B0BFC018E412AB7F7446 /* SCRecorderToolsView.h */,
+				88B92F445E58EB8CEB823CF04A244AEA /* SCRecorderToolsView.m */,
+				85C739529FD011E367FC192DBF90C840 /* SCRecordSession.h */,
+				8AB222A9FDEBF68B69E375F69E23BF15 /* SCRecordSession.m */,
+				29DFAC94988A05F946420BB7413215EB /* SCRecordSession_Internal.h */,
+				2E755C2E6F56AC246F8EB1189CDC3D35 /* SCRecordSessionSegment.h */,
+				31212976D45C561D2310A20D03FFDA04 /* SCRecordSessionSegment.m */,
+				F7BFDE231A867B0F26C444F1EF8B2B07 /* SCSampleBufferHolder.h */,
+				A0EE24832950ACB18A02981C41B1E22C /* SCSampleBufferHolder.m */,
+				B44B9F3051E2FF4CE933706568916D98 /* SCSaveToCameraRollOperation.h */,
+				6AA028F5A1BCC3A4AA96A83C00D0E350 /* SCSaveToCameraRollOperation.m */,
+				13F6D6FAE549F8A9378CF70C6134D4D9 /* SCSwipeableFilterView.h */,
+				1CE3AD3C6DDC9817B6ED72A178B32C92 /* SCSwipeableFilterView.m */,
+				B1590533821816E4131A8343D881D3A5 /* SCVideoConfiguration.h */,
+				1AE79EDC380BDEA3371213B66EA35B1E /* SCVideoConfiguration.m */,
+				73221717693E766741D26B97C7DEBEA5 /* SCVideoPlayerView.h */,
+				BF4BCBDF893AE5CCD898FEE407CC70E1 /* SCVideoPlayerView.m */,
+				2BF949CA97087F67C96CEB3F6E7966E4 /* SCWeakSelectorTarget.h */,
+				779CC12ADA69BE69CDC3358EFD405157 /* SCWeakSelectorTarget.m */,
+				443BFBA624438926B2D3115989C767E3 /* UIImage+SCSaveToCameraRoll.h */,
+				DE607A1440DF62F6DD9C567C1E6B4F18 /* UIImage+SCSaveToCameraRoll.m */,
+				1DE9642C9CC9D2AD73BC12AC4909184A /* Support Files */,
 			);
-			name = Pods;
+			name = SCRecorder;
+			path = SCRecorder;
+			sourceTree = "<group>";
+		};
+		E08808CCC4887DBA1B4ED52F21E868B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10C0DC53376175EF7B0309026C2F410 /* libMasonry.a */,
+				1E3BA5B5779EB9EBAE6CE3472FB39F77 /* libPods-SLAVCam.a */,
+				5D924D84B845F5809AC6F5B11484E2F1 /* libSCRecorder.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F3D048CB047286834DC78DA1CB1C30E0 /* Targets Support Files */ = {
@@ -224,9 +418,82 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		FDD2F6B747E531BF4F69AF7606638744 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				84909ECD343E575DE45CEA06D149893E /* MASCompositeConstraint.h */,
+				6DA79FEA3ED19EE5F650E3EE281E0ABD /* MASCompositeConstraint.m */,
+				58EE9CC9C56FE3B03D19A357D77641A4 /* MASConstraint.h */,
+				26156F16114772FC5BBCF5CB65F767E5 /* MASConstraint.m */,
+				5FA8CC266E691919BAD8BA3D4352C06C /* MASConstraint+Private.h */,
+				334A729B71884B4231014FAB198142DE /* MASConstraintMaker.h */,
+				65936127AF2485B40352B615501E5E80 /* MASConstraintMaker.m */,
+				7D45AFE362E904A9DC60849DD47E1DA5 /* MASLayoutConstraint.h */,
+				E25817CD4E18A1EC22D26563AE6CE4D2 /* MASLayoutConstraint.m */,
+				D9371745EDAB342CED75F6A67DA5304B /* Masonry.h */,
+				8086AF6AF0F4A34E5939A5E10BAC7751 /* MASUtilities.h */,
+				FBC4F9FBEEEBC3E6D7F8CF9F12DD6251 /* MASViewAttribute.h */,
+				3B4A8E37AD2109448EB167945F4E0486 /* MASViewAttribute.m */,
+				BBB7F993EA472CCC11F5E44E468ACC38 /* MASViewConstraint.h */,
+				3469EE01BC9992BEC560559D5AA77F2F /* MASViewConstraint.m */,
+				9B5ACEF2FB6779245084D7355A1B8ADF /* NSArray+MASAdditions.h */,
+				0A8A9F08A3A1BA85AF72A9B39E8976DB /* NSArray+MASAdditions.m */,
+				DD644FC3C10292B8A304A4399EFB6B87 /* NSArray+MASShorthandAdditions.h */,
+				5D92DE2CEAD710A6F717B0D246811E9B /* NSLayoutConstraint+MASDebugAdditions.h */,
+				0328557803AF69F986490A7F4C90C11B /* NSLayoutConstraint+MASDebugAdditions.m */,
+				F2DFEAC2A56659DF82664F9A6146AF17 /* View+MASAdditions.h */,
+				E5422EFDC1CD3D1DDAF326328BEF0C27 /* View+MASAdditions.m */,
+				6718EFA7A8EB6E167063D094A68F7546 /* View+MASShorthandAdditions.h */,
+				97EEFD2EC1460B3DB61022AA4F842534 /* ViewController+MASAdditions.h */,
+				372F96A50A10E656B4C95605FA34CC64 /* ViewController+MASAdditions.m */,
+				53427244A3D14F246FF51D56F3167F0F /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		7ADAB34526E28A217CBC2A450C8FF0C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC245D9D7FCB458E3F7AD052ABE9498C /* NSURL+SCSaveToCameraRoll.h in Headers */,
+				44393663EC57CEF719440B4857D1ACAD /* SCAssetExportSession.h in Headers */,
+				E6E94BE980EB2CECE6989C5BC6239124 /* SCAudioConfiguration.h in Headers */,
+				54CCCFE5B230A25D9DB298499812137C /* SCAudioTools.h in Headers */,
+				E50256A9194280C4FF34826C8CAC8A61 /* SCContext.h in Headers */,
+				9F4D1D7B25074B42A324B773C8795F2D /* SCFilter+UIImage.h in Headers */,
+				397FFD54A337D6A6F997A0F180EBB1AC /* SCFilter+VideoComposition.h in Headers */,
+				72609D6E028100A869B81F870D93F98E /* SCFilter.h in Headers */,
+				5DE83EF2F1B216B1FCE8D1915626D292 /* SCFilterAnimation.h in Headers */,
+				2647ECA41EA4F092B4F602A56CD901F3 /* SCFilterImageView.h in Headers */,
+				0E40EABB3DBBD326B527F8FE99243E98 /* SCImageView.h in Headers */,
+				585EDEE7E93F204E5410542042D10E7A /* SCIOPixelBuffers.h in Headers */,
+				92FC3F0CED5DE8C86A5D206057FB3A1A /* SCMediaTypeConfiguration.h in Headers */,
+				A55DA683BC7A8A1A607E8AD6D29DC87C /* SCPhotoConfiguration.h in Headers */,
+				8F101B053D0887DBE7EAA1DF2257839D /* SCPlayer.h in Headers */,
+				7B9D8DE17ED256FCD5B83D47AB113906 /* SCProcessingQueue.h in Headers */,
+				7457E805326A82AD2C507190AEF100A2 /* SCRecorder.h in Headers */,
+				2289A7DB304B92B994EB3C13F741A83F /* SCRecorderDelegate.h in Headers */,
+				E89F51549E35DD7E3CC20D8DC7380D62 /* SCRecorderFocusTargetView.h in Headers */,
+				709D757BE3BD9169C0E22F256AEDF161 /* SCRecorderHeader.h in Headers */,
+				37154D6941081CB170C23501EE9C9D39 /* SCRecorderTools.h in Headers */,
+				ABE87A682E45C5D5F4EA0298F9A7049E /* SCRecorderToolsView.h in Headers */,
+				67967496CF1DDC50EF1A322FE3A1BA8A /* SCRecordSession.h in Headers */,
+				11C1FA6CF7DB3650CD38F4C78380D64E /* SCRecordSession_Internal.h in Headers */,
+				F05A911CB7B2DE6E218A946389A1D8EE /* SCRecordSessionSegment.h in Headers */,
+				5C49D0C8E1528D1B471E067D6690BDBA /* SCSampleBufferHolder.h in Headers */,
+				D6092BA143226271D3523577B87C42AA /* SCSaveToCameraRollOperation.h in Headers */,
+				64EA0E198DC6C5733430E156B4328A7D /* SCSwipeableFilterView.h in Headers */,
+				C33CAC678113B30631CF6FBD9B44DC01 /* SCVideoConfiguration.h in Headers */,
+				3B646C1B71068FF34031DCA50978A06A /* SCVideoPlayerView.h in Headers */,
+				2D4018D82992F81D23B217C1F39CC67D /* SCWeakSelectorTarget.h in Headers */,
+				A53302281F34345C1B7F1D15F641B656 /* UIImage+SCSaveToCameraRoll.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF73468622762862D2FB76ED4AC0D8E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,21 +519,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0E35DF8F84B16DC724C64EB958472653 /* Pods-SLAVCam */ = {
+		997B7F8EE912036A6D5C3D3958EC2D95 /* Pods-SLAVCam */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F4269A9639E94891A9654FE0E1B0DDD /* Build configuration list for PBXNativeTarget "Pods-SLAVCam" */;
+			buildConfigurationList = 8CDECB8AFE4FF67B6E49DD077F956723 /* Build configuration list for PBXNativeTarget "Pods-SLAVCam" */;
 			buildPhases = (
-				C84D446DDF50B3D0E8BFFC03C15C332C /* Sources */,
-				A4904767D0D1340C0BFDD9D0AEBB4B60 /* Frameworks */,
+				DE2E64B8DBCD27FA921D9C8FEAB80784 /* Sources */,
+				D76A26C9CD99A93C90CD0F2DFC340E5E /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FF7329F0DBD09998AAF73670A9A0DB40 /* PBXTargetDependency */,
+				19856FDE5887CB3EDB3E1B6D389C32D2 /* PBXTargetDependency */,
+				DAE60863CB385AD11BB71FF1C600AF78 /* PBXTargetDependency */,
 			);
 			name = "Pods-SLAVCam";
 			productName = "Pods-SLAVCam";
-			productReference = 909AC17B512F0928BCC6EEF1E6E4EB57 /* libPods-SLAVCam.a */;
+			productReference = 1E3BA5B5779EB9EBAE6CE3472FB39F77 /* libPods-SLAVCam.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */ = {
@@ -283,7 +551,24 @@
 			);
 			name = Masonry;
 			productName = Masonry;
-			productReference = 09C2F4C5DFB1E96B730217CD1AFDF468 /* libMasonry.a */;
+			productReference = A10C0DC53376175EF7B0309026C2F410 /* libMasonry.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E5AC1A80FCE9872F916B3025CDA757E2 /* SCRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB6F08B8274B099B2F0F1196DE86CC46 /* Build configuration list for PBXNativeTarget "SCRecorder" */;
+			buildPhases = (
+				04F17C85B91D4F00D9F7639C3358D3E7 /* Sources */,
+				ADF0394ADAE5BD7CF93D4925C5B91AA0 /* Frameworks */,
+				7ADAB34526E28A217CBC2A450C8FF0C7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SCRecorder;
+			productName = SCRecorder;
+			productReference = 5D924D84B845F5809AC6F5B11484E2F1 /* libSCRecorder.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -303,17 +588,55 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 04810CC1E347BF08C83A987B46D09FE1 /* Products */;
+			productRefGroup = E08808CCC4887DBA1B4ED52F21E868B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */,
-				0E35DF8F84B16DC724C64EB958472653 /* Pods-SLAVCam */,
+				997B7F8EE912036A6D5C3D3958EC2D95 /* Pods-SLAVCam */,
+				E5AC1A80FCE9872F916B3025CDA757E2 /* SCRecorder */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04F17C85B91D4F00D9F7639C3358D3E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0657C6007F972B499840566766FFB63 /* NSURL+SCSaveToCameraRoll.m in Sources */,
+				4F2E9B1372C35EFE3AF801FCF2FC00E7 /* SCAssetExportSession.m in Sources */,
+				0A1C7A792CF4C0CB46FDCAF21C08324A /* SCAudioConfiguration.m in Sources */,
+				97ACC92F38111BA5B50DD7BE0BE7834A /* SCAudioTools.m in Sources */,
+				2E471A7F556ED4C8917ADC239583265A /* SCContext.m in Sources */,
+				938921A131E98A6245B9FDD90E029D63 /* SCFilter+UIImage.m in Sources */,
+				A9D733890D7B3AB289FC30FB664C5CF3 /* SCFilter+VideoComposition.m in Sources */,
+				166F3D3603BB53341AE4A906924F0A06 /* SCFilter.m in Sources */,
+				8D4C43DABDF718D94ADA56CACC24CB77 /* SCFilterAnimation.m in Sources */,
+				6CD0EC4C8D291151AC666A2B935DA96F /* SCFilterImageView.m in Sources */,
+				EA90D186C9C2C27C34F4D1CBADA75742 /* SCImageView.m in Sources */,
+				D71619917A218A1806DD06BA7E9218FE /* SCIOPixelBuffers.m in Sources */,
+				4461580029D0CFCB6DA4473DEC6F8769 /* SCMediaTypeConfiguration.m in Sources */,
+				B53DD7064FE43020045E5343BFD8B13A /* SCPhotoConfiguration.m in Sources */,
+				B5F9B4508218BD1F5AA55550190B43EA /* SCPlayer.m in Sources */,
+				3708E8D9BB1F7FCB3663A64C33A7B7C2 /* SCProcessingQueue.m in Sources */,
+				2CF514154BFCB533982E4FB29BCEFC6A /* SCRecorder-dummy.m in Sources */,
+				95340FF5BB2435534F0760029515B897 /* SCRecorder.m in Sources */,
+				23908DA5504FEABBF05F6EFBC07F05BC /* SCRecorderFocusTargetView.m in Sources */,
+				7B422A444C59B809F22264870A55E9B6 /* SCRecorderTools.m in Sources */,
+				8155C55F87A2B789752E86339DEA040A /* SCRecorderToolsView.m in Sources */,
+				84D97AFE205A31D2D8EBED7EBCAF34FA /* SCRecordSession.m in Sources */,
+				2B36751DB8C0961F339AC79B045F4F80 /* SCRecordSessionSegment.m in Sources */,
+				D5AE9A7A344BD6669899C91785E1E25A /* SCSampleBufferHolder.m in Sources */,
+				D8C096C0931ECD7F5931F5C11B695120 /* SCSaveToCameraRollOperation.m in Sources */,
+				DFFDC251E165781BFB6B3078E5F45DEC /* SCSwipeableFilterView.m in Sources */,
+				13EE09A0B85FBF69A1C510C745AC2CB4 /* SCVideoConfiguration.m in Sources */,
+				75A29C7D4C44B55E103A275689E61D32 /* SCVideoPlayerView.m in Sources */,
+				12FC62A519930A6714690C294407004E /* SCWeakSelectorTarget.m in Sources */,
+				B6C4C99C1E05A60A563425B3D3E70FB3 /* UIImage+SCSaveToCameraRoll.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4BE2DC1E815E7367562323223772531 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,155 +655,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C84D446DDF50B3D0E8BFFC03C15C332C /* Sources */ = {
+		DE2E64B8DBCD27FA921D9C8FEAB80784 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B047A29701572C3C03CBEC219E195367 /* Pods-SLAVCam-dummy.m in Sources */,
+				2BA75C02E5263FD1892E96B806769226 /* Pods-SLAVCam-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FF7329F0DBD09998AAF73670A9A0DB40 /* PBXTargetDependency */ = {
+		19856FDE5887CB3EDB3E1B6D389C32D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Masonry;
 			target = 9DC8D9E02903E93BD0B2FEC9D846EA20 /* Masonry */;
-			targetProxy = C69FDB1ADC4FA7739FBC77E848CCC5B2 /* PBXContainerItemProxy */;
+			targetProxy = 4EB2C8A00350E0C620786A98DA5BAD26 /* PBXContainerItemProxy */;
+		};
+		DAE60863CB385AD11BB71FF1C600AF78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SCRecorder;
+			target = E5AC1A80FCE9872F916B3025CDA757E2 /* SCRecorder */;
+			targetProxy = 9522B5CB293BDDC11A768CB3CA614346 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		063198AB09B9CDB3A695432FC17AD8CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		0DFBF2F26CE97EDF1DE62F4934502670 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CA61813670FF1A9C5B84A59760C69C3 /* Pods-SLAVCam.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6033A2127E806DD5C86A515742F7445E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7882AB8492CA4F59F730C76CC3BBF57A /* Masonry.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Masonry;
-				PRODUCT_NAME = Masonry;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6681B1A324732F8264BB932595DFA69B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7882AB8492CA4F59F730C76CC3BBF57A /* Masonry.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Masonry;
-				PRODUCT_NAME = Masonry;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		87EAC867385563488A6D8F1E74AC46B4 /* Debug */ = {
+		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -533,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -543,17 +744,108 @@
 			};
 			name = Debug;
 		};
-		90C13B8BDEBF1D6D0F45B37496871495 /* Debug */ = {
+		1A998A95A3D464E20B4217B2B4B41EB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E2F8BBFAF92BD6FEF4256FD9E857DBA /* Pods-SLAVCam.debug.xcconfig */;
+			baseConfigurationReference = 1CA61813670FF1A9C5B84A59760C69C3 /* Pods-SLAVCam.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4503CA0C8401A8295078BB87B109E1BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16CE61FF8A77E947CED7B52F98141D3F /* SCRecorder.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SCRecorder/SCRecorder-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SCRecorder;
+				PRODUCT_NAME = SCRecorder;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6033A2127E806DD5C86A515742F7445E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFCED877C812AA7AAFC3C87740D0AC9A /* Masonry.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Masonry;
+				PRODUCT_NAME = Masonry;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6681B1A324732F8264BB932595DFA69B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFCED877C812AA7AAFC3C87740D0AC9A /* Masonry.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Masonry;
+				PRODUCT_NAME = Masonry;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3A68D8D043749BC078A94F592B46FD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2F8BBFAF92BD6FEF4256FD9E857DBA /* Pods-SLAVCam.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -565,14 +857,96 @@
 			};
 			name = Debug;
 		};
+		C898D2C2475086F88D9C322B8E593876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16CE61FF8A77E947CED7B52F98141D3F /* SCRecorder.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SCRecorder/SCRecorder-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SCRecorder;
+				PRODUCT_NAME = SCRecorder;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				87EAC867385563488A6D8F1E74AC46B4 /* Debug */,
-				063198AB09B9CDB3A695432FC17AD8CA /* Release */,
+				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
+				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -586,11 +960,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F4269A9639E94891A9654FE0E1B0DDD /* Build configuration list for PBXNativeTarget "Pods-SLAVCam" */ = {
+		8CDECB8AFE4FF67B6E49DD077F956723 /* Build configuration list for PBXNativeTarget "Pods-SLAVCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				90C13B8BDEBF1D6D0F45B37496871495 /* Debug */,
-				0DFBF2F26CE97EDF1DE62F4934502670 /* Release */,
+				C3A68D8D043749BC078A94F592B46FD1 /* Debug */,
+				1A998A95A3D464E20B4217B2B4B41EB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB6F08B8274B099B2F0F1196DE86CC46 /* Build configuration list for PBXNativeTarget "SCRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4503CA0C8401A8295078BB87B109E1BE /* Debug */,
+				C898D2C2475086F88D9C322B8E593876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

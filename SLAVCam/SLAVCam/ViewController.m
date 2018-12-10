@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 #import <Photos/Photos.h>
+#import <Metal/Metal.h>
 #import "AVCamPreView.h"
 #import "SLUICommon.h"
+#import "SCSampleBufferHolder.h"
+#import "SCImageView.h"
 
 typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
     AVCamSetupResultSuccess,
@@ -20,11 +23,18 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 static void * SessionRunningContext = &SessionRunningContext;
 
 API_AVAILABLE(ios(10.0))
-@interface ViewController ()<AVCaptureFileOutputRecordingDelegate>
+@interface ViewController ()<AVCaptureFileOutputRecordingDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
+{
+    SCSampleBufferHolder* _lastVideoBuffer;
+    BOOL _shouldIgnore;
+    AVCaptureConnection *currentConnection;
+    CVPixelBufferRef currentSampleBuffer;
+}
 @property (nonatomic, weak) AVCamPreView *previewView;
 @property (nonatomic) AVCamSetupResult setupResult;
 @property (nonatomic) AVCaptureDeviceDiscoverySession *videoDeviceDiscoverySession;   // Available 10.2
 @property (nonatomic, strong) UIImageView *focusView;//对焦框
+@property (nonatomic, weak) UIButton* shootBtn;
 
 // 具体的物理设备
 @property (nonatomic) AVCaptureDevice *videoDevice;
@@ -34,9 +44,14 @@ API_AVAILABLE(ios(10.0))
 @property (nonatomic) AVCaptureDeviceInput *videoDeviceInput;
 @property (nonatomic, strong) AVCaptureMovieFileOutput *movieFileOutput;
 @property (nonatomic, strong) AVCaptureConnection *movieFileOutputConnection;
+@property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
+// AVCaptureAudioDataOutput *_audioOutput;
 
 // 辅助属性
 @property (nonatomic, getter=isSessionRunning) BOOL sessionRunning;
+
+// 滤镜等美颜功能
+@property (strong, nonatomic) SCImageView *__nullable SCImageView;
 
 // 队列
 @property (nonatomic) dispatch_queue_t sessionQueue;
@@ -53,6 +68,9 @@ API_AVAILABLE(ios(10.0))
     [self regiseterNotification];
     [self setupUI];
     [self setupUIDevice];
+    
+    _lastVideoBuffer =  [SCSampleBufferHolder new];
+    _shouldIgnore = NO;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -145,8 +163,9 @@ API_AVAILABLE(ios(10.0))
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    NSLog(@"%s", __func__);
     if ( context == SessionRunningContext ) {
-//        BOOL isSessionRunning = [change[NSKeyValueChangeNewKey] boolValue];
+        BOOL isSessionRunning = [change[NSKeyValueChangeNewKey] boolValue];
 //        BOOL livePhotoCaptureSupported = self.photoOutput.livePhotoCaptureSupported;
 //        BOOL livePhotoCaptureEnabled = self.photoOutput.livePhotoCaptureEnabled;
 //        BOOL depthDataDeliverySupported = self.photoOutput.depthDataDeliverySupported;
@@ -155,7 +174,7 @@ API_AVAILABLE(ios(10.0))
         dispatch_async( dispatch_get_main_queue(), ^{
             // Only enable the ability to change camera if the device has more than one camera.
 //            self.cameraButton.enabled = isSessionRunning && ( self.videoDeviceDiscoverySession.uniqueDevicePositionsCount > 1 );
-//            self.recordButton.enabled = isSessionRunning && ( self.captureModeControl.selectedSegmentIndex == AVCamCaptureModeMovie );
+            self.shootBtn.enabled = isSessionRunning;
 //            self.photoButton.enabled = isSessionRunning;
 //            self.captureModeControl.enabled = isSessionRunning;
 //            self.livePhotoModeButton.enabled = isSessionRunning && livePhotoCaptureEnabled;
@@ -171,12 +190,14 @@ API_AVAILABLE(ios(10.0))
 
 - (void)subjectAreaDidChange:(NSNotification *)notification
 {
-//    CGPoint devicePoint = CGPointMake( 0.5, 0.5 );
-//    [self focusWithMode:AVCaptureFocusModeContinuousAutoFocus exposeWithMode:AVCaptureExposureModeContinuousAutoExposure atDevicePoint:devicePoint monitorSubjectAreaChange:NO];
+    NSLog(@"%s", __func__);
+    CGPoint devicePoint = CGPointMake( 0.5, 0.5 );
+    [self focusWithMode:AVCaptureFocusModeContinuousAutoFocus exposeWithMode:AVCaptureExposureModeContinuousAutoExposure atDevicePoint:devicePoint monitorSubjectAreaChange:NO];
 }
 
 - (void)sessionRuntimeError:(NSNotification *)notification
 {
+    NSLog(@"%s", __func__);
     NSError *error = notification.userInfo[AVCaptureSessionErrorKey];
     NSLog( @"Capture session runtime error: %@", error );
     
@@ -205,6 +226,7 @@ API_AVAILABLE(ios(10.0))
 
 - (void)sessionWasInterrupted:(NSNotification *)notification
 {
+    NSLog(@"%s", __func__);
     /*
      In some scenarios we want to enable the user to resume the session running.
      For example, if music playback is initiated via control center while
@@ -243,6 +265,7 @@ API_AVAILABLE(ios(10.0))
 
 - (void)sessionInterruptionEnded:(NSNotification *)notification
 {
+    NSLog(@"%s", __func__);
     NSLog( @"Capture session interruption ended" );
 //    if ( ! self.resumeButton.hidden ) {
 //        [UIView animateWithDuration:0.25 animations:^{
@@ -334,6 +357,7 @@ API_AVAILABLE(ios(10.0))
     [shootBtn setImage:[UIImage imageNamed:@"camera_record"] forState:UIControlStateNormal];
     [shootBtn setImage:[UIImage imageNamed:@"publish_shooting"] forState:UIControlStateSelected];
     [shootBtn addTarget:self action:@selector(toggleMovieRecording:) forControlEvents:UIControlEventTouchUpInside];
+    self.shootBtn = shootBtn;
     [self.view addSubview:shootBtn];
     [shootBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(bottomMenuView);
@@ -514,7 +538,7 @@ API_AVAILABLE(ios(10.0))
         NSLog( @"Could not add audio device input to the session" );
     }
     
-    //  Add photo output.
+    //  Add Video output.
     AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
     if ( [self.session canAddOutput:movieFileOutput] )
     {
@@ -525,6 +549,26 @@ API_AVAILABLE(ios(10.0))
             connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
         }
         self.movieFileOutput = movieFileOutput;
+    } else {
+        self.setupResult = AVCamSetupResultSessionConfigurationFailed;
+        [self.session commitConfiguration];
+        return;
+    }
+    
+    // Add Data Output For Beauty
+    _videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+    if ([self.session canAddOutput:_videoOutput]) {
+        [self.session addOutput:_videoOutput];
+        [_videoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA]
+                                                                   forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+        [_videoOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
+        [_videoOutput setAlwaysDiscardsLateVideoFrames:YES];
+        
+//        AVCaptureConnection *videoOutputConnection = [_videoOutput connectionWithMediaType:AVMediaTypeVideo];
+//        videoOutputConnection.videoOrientation = self.previewView.videoPreviewLayer.connection.videoOrientation;
+//        if ( videoOutputConnection.isVideoStabilizationSupported ) {
+//            videoOutputConnection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
+//        }
     } else {
         self.setupResult = AVCamSetupResultSessionConfigurationFailed;
         [self.session commitConfiguration];
@@ -561,12 +605,18 @@ API_AVAILABLE(ios(10.0))
                  To conclude this background execution, -[endBackgroundTask:] is called in
                  -[captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:] after the recorded file has been saved.
                  */
-                self.backgroundRecordingID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                typeof(*&self) __weak weakSelf = self;
+                self.backgroundRecordingID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+                    NSLog(@"进入后台需要处理 ========");
+                    [[UIApplication sharedApplication] endBackgroundTask:weakSelf.backgroundRecordingID];
+                }];
             }
 
             // Update the orientation on the movie file output video connection before starting recording.
             AVCaptureConnection *movieFileOutputConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
             movieFileOutputConnection.videoOrientation = videoPreviewLayerVideoOrientation;
+            
+            
 
             // Use HEVC codec if supported
             if (@available(iOS 11.0, *)) {
@@ -691,7 +741,7 @@ API_AVAILABLE(ios(10.0))
     if(sender.selected) {
         height = width;
     }
-    [self setActiveFormatWithFrameRate:[self frameRate] width:width andHeight:height error:nil];
+    [self setActiveFormatWithFrameRate:[self frameRate] width:height andHeight:width error:nil];
 }
 
 #pragma mark ================   Private Mothod    ================
@@ -758,6 +808,8 @@ API_AVAILABLE(ios(10.0))
             if ([[self class] formatInRange:format frameRate:frameRate dimensions:dimensions]) {
                 if (bestFormat == nil) {
                     bestFormat = format;
+                    CMVideoDimensions size = CMVideoFormatDescriptionGetDimensions(bestFormat.formatDescription);
+                    NSLog(@"bestFormat size === [%0.1d %0.1d] ====== dimensions === [%0.1d %0.1d]", size.width, size.height, dimensions.width, dimensions.height);
                 } else {
                     CMVideoDimensions bestDimensions = CMVideoFormatDescriptionGetDimensions(bestFormat.formatDescription);
                     CMVideoDimensions currentDimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription);
@@ -826,6 +878,7 @@ API_AVAILABLE(ios(10.0))
 + (BOOL)formatInRange:(AVCaptureDeviceFormat*)format frameRate:(CMTimeScale)frameRate dimensions:(CMVideoDimensions)dimensions {
     CMVideoDimensions size = CMVideoFormatDescriptionGetDimensions(format.formatDescription);
     
+    NSLog(@"formatInRange size === [%0.1d %0.1d] ====== dimensions === [%0.1d %0.1d]", size.width, size.height, dimensions.width, dimensions.height);
     if (size.width >= dimensions.width && size.height >= dimensions.height) {
         for (AVFrameRateRange *range in format.videoSupportedFrameRateRanges) {
             if (range.minFrameDuration.timescale >= frameRate && range.maxFrameDuration.timescale <= frameRate) {
@@ -849,6 +902,70 @@ API_AVAILABLE(ios(10.0))
 
 + (NSError*)createError:(NSString*)errorDescription {
     return [NSError errorWithDomain:@"SLCamerError" code:200 userInfo:@{NSLocalizedDescriptionKey : errorDescription}];
+}
+
+- (void)captureOutputOrigin:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    if (captureOutput == _videoOutput) {
+        _lastVideoBuffer.sampleBuffer = sampleBuffer;
+        //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
+        
+        if (_shouldIgnore) {
+            return;
+        }
+        
+        SCImageView *imageView = _SCImageView;
+        if (imageView != nil) {
+            CFRetain(sampleBuffer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [imageView setImageBySampleBuffer:sampleBuffer];
+                CFRelease(sampleBuffer);
+            });
+        }
+    }
+}
+
+- (AVCaptureVideoOrientation)actualVideoOrientation {
+    AVCaptureVideoOrientation videoOrientation = AVCaptureVideoOrientationPortrait;
+//    AVCaptureVideoOrientation videoOrientation = _videoOrientation;
+//
+//    if (_autoSetVideoOrientation) {
+        UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+        
+        switch (deviceOrientation) {
+            case UIDeviceOrientationLandscapeLeft:
+                videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+                break;
+            case UIDeviceOrientationLandscapeRight:
+                videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+                break;
+            case UIDeviceOrientationPortrait:
+                videoOrientation = AVCaptureVideoOrientationPortrait;
+                break;
+            case UIDeviceOrientationPortraitUpsideDown:
+                videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+                break;
+            default:
+                break;
+        }
+//    }
+    
+    return videoOrientation;
+}
+
+
+#pragma mark - support Method
+- (BOOL)supportMetal {
+    static BOOL support = NO;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        id<MTLDevice> device = MTLCreateSystemDefaultDevice();
+        if(device){
+            if (@available(iOS 9.0, *)) {
+                support = [device supportsFeatureSet:MTLFeatureSet_iOS_GPUFamily1_v2];
+            }
+        }
+    });
+    return support;
 }
 
 
@@ -904,6 +1021,69 @@ API_AVAILABLE(ios(10.0))
         // Only enable the ability to change camera if the device has more than one camera.
         
     });
+}
+
+#pragma mark ================   AVCaptureVideoDataOutputSampleBufferDelegate    ================
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
+    NSLog(@"%s", __func__);
+    if (!self.supportMetal) {
+        [self captureOutputOrigin:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
+        return;
+    }
+    if (captureOutput == _videoOutput) {
+        currentConnection = connection;
+//        if ([self.delegate respondsToSelector:@selector(captureOutput:previewBuffer:fromConnection:)]) {
+//            [self.delegate captureOutput:captureOutput previewBuffer:sampleBuffer fromConnection:connection];
+//        }
+        
+        CVPixelBufferRef pixelBuffer = currentSampleBuffer;
+        CMSampleTimingInfo info ;
+        CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &info);
+        
+        CMFormatDescriptionRef formatDesc = nil;
+        CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer, &formatDesc);
+        
+        CMSampleBufferRef sampleBuffer2 = nil;
+        CMSampleBufferCreateReadyWithImageBuffer(kCFAllocatorDefault,
+                                                 pixelBuffer,
+                                                 formatDesc,
+                                                 &info,
+                                                 &sampleBuffer2);
+        sampleBuffer = sampleBuffer2;
+        CFRelease(formatDesc);
+        
+        
+        //        [self replacePixelData:sampleBuffer];
+        
+        _lastVideoBuffer.sampleBuffer = sampleBuffer;
+        //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
+        
+        if (_shouldIgnore) {
+            return;
+        }
+        
+        SCImageView *imageView = _SCImageView;
+        if (imageView != nil) {
+            CFRetain(sampleBuffer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [imageView setImageBySampleBuffer:sampleBuffer];
+                CFRelease(sampleBuffer);
+            });
+        }
+        
+//        if (!_initializeSessionLazily || _isRecording) {
+//            SCRecordSession *recordSession = _session;
+//            if (recordSession != nil) {
+//                CFRetain(sampleBuffer);
+//                dispatch_async(_sessionQueue, ^{
+//                    [self _handleVideoSampleBuffer:sampleBuffer withSession:recordSession connection:connection];
+//                    CFRelease(sampleBuffer);
+//                });
+//            }
+//        }
+        CFRelease(sampleBuffer2);
+        return;
+    }
 }
 
 @end
