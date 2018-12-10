@@ -539,21 +539,21 @@ API_AVAILABLE(ios(10.0))
     }
     
     //  Add Video output.
-    AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
-    if ( [self.session canAddOutput:movieFileOutput] )
-    {
-        [self.session addOutput:movieFileOutput];
-        self.session.sessionPreset = AVCaptureSessionPresetHigh;
-        AVCaptureConnection *connection = [movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-        if ( connection.isVideoStabilizationSupported ) {
-            connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
-        }
-        self.movieFileOutput = movieFileOutput;
-    } else {
-        self.setupResult = AVCamSetupResultSessionConfigurationFailed;
-        [self.session commitConfiguration];
-        return;
-    }
+//    AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+//    if ( [self.session canAddOutput:movieFileOutput] )
+//    {
+//        [self.session addOutput:movieFileOutput];
+//        self.session.sessionPreset = AVCaptureSessionPresetHigh;
+//        AVCaptureConnection *connection = [movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
+//        if ( connection.isVideoStabilizationSupported ) {
+//            connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
+//        }
+//        self.movieFileOutput = movieFileOutput;
+//    } else {
+//        self.setupResult = AVCamSetupResultSessionConfigurationFailed;
+//        [self.session commitConfiguration];
+//        return;
+//    }
     
     // Add Data Output For Beauty
     _videoOutput = [[AVCaptureVideoDataOutput alloc] init];
@@ -1026,64 +1026,64 @@ API_AVAILABLE(ios(10.0))
 #pragma mark ================   AVCaptureVideoDataOutputSampleBufferDelegate    ================
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
     NSLog(@"%s", __func__);
-    if (!self.supportMetal) {
-        [self captureOutputOrigin:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
-        return;
-    }
-    if (captureOutput == _videoOutput) {
-        currentConnection = connection;
-//        if ([self.delegate respondsToSelector:@selector(captureOutput:previewBuffer:fromConnection:)]) {
-//            [self.delegate captureOutput:captureOutput previewBuffer:sampleBuffer fromConnection:connection];
+//    if (!self.supportMetal) {
+//        [self captureOutputOrigin:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
+//        return;
+//    }
+//    if (captureOutput == _videoOutput) {
+//        currentConnection = connection;
+////        if ([self.delegate respondsToSelector:@selector(captureOutput:previewBuffer:fromConnection:)]) {
+////            [self.delegate captureOutput:captureOutput previewBuffer:sampleBuffer fromConnection:connection];
+////        }
+//        
+//        CVPixelBufferRef pixelBuffer = currentSampleBuffer;
+//        CMSampleTimingInfo info ;
+//        CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &info);
+//        
+//        CMFormatDescriptionRef formatDesc = nil;
+//        CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer, &formatDesc);
+//        
+//        CMSampleBufferRef sampleBuffer2 = nil;
+//        CMSampleBufferCreateReadyWithImageBuffer(kCFAllocatorDefault,
+//                                                 pixelBuffer,
+//                                                 formatDesc,
+//                                                 &info,
+//                                                 &sampleBuffer2);
+//        sampleBuffer = sampleBuffer2;
+//        CFRelease(formatDesc);
+//        
+//        
+//        //        [self replacePixelData:sampleBuffer];
+//        
+//        _lastVideoBuffer.sampleBuffer = sampleBuffer;
+//        //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
+//        
+//        if (_shouldIgnore) {
+//            return;
 //        }
-        
-        CVPixelBufferRef pixelBuffer = currentSampleBuffer;
-        CMSampleTimingInfo info ;
-        CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &info);
-        
-        CMFormatDescriptionRef formatDesc = nil;
-        CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer, &formatDesc);
-        
-        CMSampleBufferRef sampleBuffer2 = nil;
-        CMSampleBufferCreateReadyWithImageBuffer(kCFAllocatorDefault,
-                                                 pixelBuffer,
-                                                 formatDesc,
-                                                 &info,
-                                                 &sampleBuffer2);
-        sampleBuffer = sampleBuffer2;
-        CFRelease(formatDesc);
-        
-        
-        //        [self replacePixelData:sampleBuffer];
-        
-        _lastVideoBuffer.sampleBuffer = sampleBuffer;
-        //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
-        
-        if (_shouldIgnore) {
-            return;
-        }
-        
-        SCImageView *imageView = _SCImageView;
-        if (imageView != nil) {
-            CFRetain(sampleBuffer);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [imageView setImageBySampleBuffer:sampleBuffer];
-                CFRelease(sampleBuffer);
-            });
-        }
-        
-//        if (!_initializeSessionLazily || _isRecording) {
-//            SCRecordSession *recordSession = _session;
-//            if (recordSession != nil) {
-//                CFRetain(sampleBuffer);
-//                dispatch_async(_sessionQueue, ^{
-//                    [self _handleVideoSampleBuffer:sampleBuffer withSession:recordSession connection:connection];
-//                    CFRelease(sampleBuffer);
-//                });
-//            }
+//        
+//        SCImageView *imageView = _SCImageView;
+//        if (imageView != nil) {
+//            CFRetain(sampleBuffer);
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [imageView setImageBySampleBuffer:sampleBuffer];
+//                CFRelease(sampleBuffer);
+//            });
 //        }
-        CFRelease(sampleBuffer2);
-        return;
-    }
+//        
+////        if (!_initializeSessionLazily || _isRecording) {
+////            SCRecordSession *recordSession = _session;
+////            if (recordSession != nil) {
+////                CFRetain(sampleBuffer);
+////                dispatch_async(_sessionQueue, ^{
+////                    [self _handleVideoSampleBuffer:sampleBuffer withSession:recordSession connection:connection];
+////                    CFRelease(sampleBuffer);
+////                });
+////            }
+////        }
+//        CFRelease(sampleBuffer2);
+//        return;
+//    }
 }
 
 @end

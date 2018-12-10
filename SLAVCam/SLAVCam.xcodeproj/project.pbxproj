@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BC4664621BEC52900A00027 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4664421BEC52800A00027 /* Shader.fsh */; };
+		6BC4664721BEC52900A00027 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4664521BEC52800A00027 /* Shader.vsh */; };
+		6BC4664B21BEC55200A00027 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4664A21BEC55200A00027 /* RippleModel.m */; };
 		85058F5021B15B4B000A4207 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85058F4F21B15B4B000A4207 /* AppDelegate.m */; };
 		85058F5321B15B4B000A4207 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85058F5221B15B4B000A4207 /* ViewController.m */; };
 		85058F5621B15B4B000A4207 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85058F5421B15B4B000A4207 /* Main.storyboard */; };
@@ -77,6 +80,10 @@
 
 /* Begin PBXFileReference section */
 		1B6C37F137CD317740822B8C /* libPods-SLAVCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SLAVCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC4664421BEC52800A00027 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		6BC4664521BEC52800A00027 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		6BC4664921BEC55200A00027 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		6BC4664A21BEC55200A00027 /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
 		85058F4B21B15B4B000A4207 /* SLAVCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAVCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85058F4E21B15B4B000A4207 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		85058F4F21B15B4B000A4207 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,6 +172,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BC4664321BEC52800A00027 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				6BC4664421BEC52800A00027 /* Shader.fsh */,
+				6BC4664521BEC52800A00027 /* Shader.vsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		6BC4664821BEC55200A00027 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BC4664921BEC55200A00027 /* RippleModel.h */,
+				6BC4664A21BEC55200A00027 /* RippleModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		72A10442B1D94C85C31D27B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,20 +246,14 @@
 		85058F6A21B15BFB000A4207 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6BC4664821BEC55200A00027 /* Model */,
+				6BC4664321BEC52800A00027 /* Shaders */,
 				85058FE621B4F3D7000A4207 /* Common */,
-				85058F6B21B15BFB000A4207 /* Model */,
 				85058F6C21B15BFB000A4207 /* View */,
 				85058F6D21B15BFB000A4207 /* ViewController */,
 				85058F6E21B15BFB000A4207 /* Engine */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		85058F6B21B15BFB000A4207 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		85058F6C21B15BFB000A4207 /* View */ = {
@@ -424,6 +443,7 @@
 				85058FE521B4D75D000A4207 /* publish_gradual@3x.png in Resources */,
 				85058FCC21B4D75D000A4207 /* publish_1:1@2x.png in Resources */,
 				85058FD821B4D75D000A4207 /* publish_16:9selected@3x.png in Resources */,
+				6BC4664621BEC52900A00027 /* Shader.fsh in Resources */,
 				85058FBA21B4D75D000A4207 /* publish_shooting@3x.png in Resources */,
 				85058FCF21B4D75D000A4207 /* publish_4:3selectedOn@3x.png in Resources */,
 				85058FB021B4D75D000A4207 /* publish_9:16@3x.png in Resources */,
@@ -457,6 +477,7 @@
 				85058FE121B4D75D000A4207 /* publish_beauty@2x.png in Resources */,
 				85058FC721B4D75D000A4207 /* publish_9:16selectedOn@2x.png in Resources */,
 				85058FD721B4D75D000A4207 /* publish_1:1selectedOn@3x.png in Resources */,
+				6BC4664721BEC52900A00027 /* Shader.vsh in Resources */,
 				85058FBF21B4D75D000A4207 /* publish_trans@3x.png in Resources */,
 				85058FB721B4D75D000A4207 /* publish_selectdot@3x.png in Resources */,
 			);
@@ -495,6 +516,7 @@
 				85058F5321B15B4B000A4207 /* ViewController.m in Sources */,
 				85058F5E21B15B4E000A4207 /* main.m in Sources */,
 				85058F7421B4D2E8000A4207 /* AVCamPreView.m in Sources */,
+				6BC4664B21BEC55200A00027 /* RippleModel.m in Sources */,
 				85058F5021B15B4B000A4207 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
