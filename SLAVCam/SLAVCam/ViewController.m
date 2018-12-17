@@ -14,6 +14,9 @@
 #import "SLUICommon.h"
 #import "SCSampleBufferHolder.h"
 #import "SCImageView.h"
+#import <CoreMedia/CoreMedia.h>
+#import <CoreMedia/CMMetadata.h>
+#import <Photos/Photos.h>
 
 typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
     AVCamSetupResultSuccess,
@@ -29,6 +32,23 @@ API_AVAILABLE(ios(10.0))
     BOOL _shouldIgnore;
     AVCaptureConnection *currentConnection;
     CVPixelBufferRef currentSampleBuffer;
+    
+    AVCaptureConnection                    *_audioConnection;
+    AVCaptureConnection                    *_videoConnection;
+    
+    NSURL                                *_movieURL;
+    AVAssetWriter                        *_assetWriter;
+    AVAssetWriterInput                    *_assetWriterAudioIn;
+    AVAssetWriterInput                    *_assetWriterVideoIn;
+    AVAssetWriterInput                    *_assetWriterMetadataIn;
+    AVAssetWriterInputMetadataAdaptor    *_assetWriterMetadataAdaptor;
+    
+    // Only accessed on movie writing queue
+    BOOL                                _readyToRecordAudio;
+    BOOL                                _readyToRecordVideo;
+    BOOL                                _readyToRecordMetadata;
+    BOOL                                _recordingWillBeStarted;
+    BOOL                                _recordingWillBeStopped;
 }
 @property (nonatomic, weak) AVCamPreView *previewView;
 @property (nonatomic) AVCamSetupResult setupResult;
@@ -58,6 +78,12 @@ API_AVAILABLE(ios(10.0))
 
 // 后台任务
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundRecordingID;
+
+// 当前的录制方向
+@property (readwrite) AVCaptureVideoOrientation videoOrientation;
+
+// 开始录制
+@property (readwrite, getter=isRecording) BOOL    recording;
 @end
 
 @implementation ViewController
@@ -71,6 +97,8 @@ API_AVAILABLE(ios(10.0))
     
     _lastVideoBuffer =  [SCSampleBufferHolder new];
     _shouldIgnore = NO;
+    self.referenceOrientation = AVCaptureVideoOrientationPortrait;
+    _movieURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", NSTemporaryDirectory(), @"Movie.MOV"]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -564,11 +592,10 @@ API_AVAILABLE(ios(10.0))
         [_videoOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
         [_videoOutput setAlwaysDiscardsLateVideoFrames:YES];
         
-//        AVCaptureConnection *videoOutputConnection = [_videoOutput connectionWithMediaType:AVMediaTypeVideo];
-//        videoOutputConnection.videoOrientation = self.previewView.videoPreviewLayer.connection.videoOrientation;
-//        if ( videoOutputConnection.isVideoStabilizationSupported ) {
-//            videoOutputConnection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
-//        }
+        _videoConnection = [_videoOutput connectionWithMediaType:AVMediaTypeVideo];
+        self.videoOrientation = _videoConnection.videoOrientation;
+        
+        
     } else {
         self.setupResult = AVCamSetupResultSessionConfigurationFailed;
         [self.session commitConfiguration];
@@ -579,6 +606,219 @@ API_AVAILABLE(ios(10.0))
     [self.session commitConfiguration];
 }
 
+#pragma mark - assetWriter
+- (BOOL)inputsReadyToRecord
+{
+    // Check if all inputs are ready to begin recording.
+    return (_readyToRecordAudio && _readyToRecordVideo && _readyToRecordMetadata);
+}
+
+- (CGFloat)angleOffsetFromPortraitOrientationToOrientation:(AVCaptureVideoOrientation)orientation
+{
+    CGFloat angle = 0.0;
+    
+    switch (orientation)
+    {
+        case AVCaptureVideoOrientationPortrait:
+            angle = 0.0;
+            break;
+        case AVCaptureVideoOrientationPortraitUpsideDown:
+            angle = M_PI;
+            break;
+        case AVCaptureVideoOrientationLandscapeRight:
+            angle = -M_PI_2;
+            break;
+        case AVCaptureVideoOrientationLandscapeLeft:
+            angle = M_PI_2;
+            break;
+        default:
+            break;
+    }
+    
+    return angle;
+}
+
+- (CGAffineTransform)transformFromCurrentVideoOrientationToOrientation:(AVCaptureVideoOrientation)orientation
+{
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    // Calculate offsets from an arbitrary reference orientation (portrait)
+    CGFloat orientationAngleOffset = [self angleOffsetFromPortraitOrientationToOrientation:orientation];
+    CGFloat videoOrientationAngleOffset = [self angleOffsetFromPortraitOrientationToOrientation:self.videoOrientation];
+    
+    // Find the difference in angle between the passed in orientation and the current video orientation
+    CGFloat angleOffset = orientationAngleOffset - videoOrientationAngleOffset;
+    transform = CGAffineTransformMakeRotation(angleOffset);
+    
+    return transform;
+}
+
+- (BOOL)setupAssetWriterVideoInput:(CMFormatDescriptionRef)currentFormatDescription
+{
+    // Create video output settings dictionary which would be used to configure asset writer input
+    CGFloat bitsPerPixel;
+    CMVideoDimensions dimensions = CMVideoFormatDescriptionGetDimensions(currentFormatDescription);
+    NSUInteger numPixels = dimensions.width * dimensions.height;
+    NSUInteger bitsPerSecond;
+    
+    // Assume that lower-than-SD resolutions are intended for streaming, and use a lower bitrate
+    if ( numPixels < (640 * 480) )
+        bitsPerPixel = 4.05; // This bitrate matches the quality produced by AVCaptureSessionPresetMedium or Low.
+    else
+        bitsPerPixel = 11.4; // This bitrate matches the quality produced by AVCaptureSessionPresetHigh.
+    
+    bitsPerSecond = numPixels * bitsPerPixel;
+    
+    NSDictionary *videoCompressionSettings = @{AVVideoCodecKey : AVVideoCodecH264,
+                                               AVVideoWidthKey : [NSNumber numberWithInteger:dimensions.width],
+                                               AVVideoHeightKey : [NSNumber numberWithInteger:dimensions.height],
+                                               AVVideoCompressionPropertiesKey : @{ AVVideoAverageBitRateKey : [NSNumber numberWithInteger:bitsPerSecond],
+                                                                                    AVVideoMaxKeyFrameIntervalKey :[NSNumber numberWithInteger:30]}};
+    
+    if ([_assetWriter canApplyOutputSettings:videoCompressionSettings forMediaType:AVMediaTypeVideo])
+    {
+        // Intialize asset writer video input with the above created settings dictionary
+        _assetWriterVideoIn = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:videoCompressionSettings];
+        _assetWriterVideoIn.expectsMediaDataInRealTime = YES;
+        _assetWriterVideoIn.transform = [self transformFromCurrentVideoOrientationToOrientation:self.referenceOrientation];
+        
+        // Add asset writer input to asset writer
+        if ([_assetWriter canAddInput:_assetWriterVideoIn])
+        {
+            [_assetWriter addInput:_assetWriterVideoIn];
+        }
+        else
+        {
+            NSLog(@"Couldn't add asset writer video input.");
+            return NO;
+        }
+    }
+    else
+    {
+        NSLog(@"Couldn't apply video output settings.");
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)writeSampleBuffer:(CMSampleBufferRef)sampleBuffer ofType:(NSString *)mediaType
+{
+    if ( _assetWriter.status == AVAssetWriterStatusUnknown )
+    {
+        // If the asset writer status is unknown, implies writing hasn't started yet, hence start writing with start time as the buffer's presentation timestamp
+        if ([_assetWriter startWriting])
+            [_assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+        else
+            [self showError:_assetWriter.error];
+    }
+    
+    if ( _assetWriter.status == AVAssetWriterStatusWriting )
+    {
+        // If the asset writer status is writing, append sample buffer to its corresponding asset writer input
+        if (mediaType == AVMediaTypeVideo)
+        {
+            if (_assetWriterVideoIn.readyForMoreMediaData)
+            {
+                if (![_assetWriterVideoIn appendSampleBuffer:sampleBuffer])
+                    [self showError:_assetWriter.error];
+            }
+        }
+        else if (mediaType == AVMediaTypeAudio)
+        {
+            if (_assetWriterAudioIn.readyForMoreMediaData)
+            {
+                if (![_assetWriterAudioIn appendSampleBuffer:sampleBuffer])
+                    [self showError:_assetWriter.error];
+            }
+        }
+    }
+}
+
+- (BOOL)setupAssetWriterAudioInput:(CMFormatDescriptionRef)currentFormatDescription
+{
+    // Create audio output settings dictionary which would be used to configure asset writer input
+    const AudioStreamBasicDescription *currentASBD = CMAudioFormatDescriptionGetStreamBasicDescription(currentFormatDescription);
+    size_t aclSize = 0;
+    const AudioChannelLayout *currentChannelLayout = CMAudioFormatDescriptionGetChannelLayout(currentFormatDescription, &aclSize);
+    
+    NSData *currentChannelLayoutData = nil;
+    // AVChannelLayoutKey must be specified, but if we don't know any better give an empty data and let AVAssetWriter decide.
+    if ( currentChannelLayout && aclSize > 0 )
+        currentChannelLayoutData = [NSData dataWithBytes:currentChannelLayout length:aclSize];
+    else
+        currentChannelLayoutData = [NSData data];
+    
+    NSDictionary *audioCompressionSettings = @{AVFormatIDKey : [NSNumber numberWithInteger:kAudioFormatMPEG4AAC],
+                                               AVSampleRateKey : [NSNumber numberWithFloat:currentASBD->mSampleRate],
+                                               AVEncoderBitRatePerChannelKey : [NSNumber numberWithInt:64000],
+                                               AVNumberOfChannelsKey : [NSNumber numberWithInteger:currentASBD->mChannelsPerFrame],
+                                               AVChannelLayoutKey : currentChannelLayoutData};
+    
+    if ([_assetWriter canApplyOutputSettings:audioCompressionSettings forMediaType:AVMediaTypeAudio])
+    {
+        // Intialize asset writer audio input with the above created settings dictionary
+        _assetWriterAudioIn = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:audioCompressionSettings];
+        _assetWriterAudioIn.expectsMediaDataInRealTime = YES;
+        
+        // Add asset writer input to asset writer
+        if ([_assetWriter canAddInput:_assetWriterAudioIn])
+        {
+            [_assetWriter addInput:_assetWriterAudioIn];
+        }
+        else
+        {
+            NSLog(@"Couldn't add asset writer audio input.");
+            return NO;
+        }
+    }
+    else
+    {
+        NSLog(@"Couldn't apply audio output settings.");
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)setupAssetWriterMetadataInputAndMetadataAdaptor
+{
+    // All combinations of identifiers, data types and extended language tags that will be appended to the metadata adaptor must form the specifications dictionary
+    CMFormatDescriptionRef metadataFormatDescription = NULL;
+    NSArray *specifications = @[@{(__bridge NSString *)kCMMetadataFormatDescriptionMetadataSpecificationKey_Identifier : (__bridge NSString *)kCMMetadataIdentifier_QuickTimeMetadataLocation_ISO6709,
+                                  (__bridge NSString *)kCMMetadataFormatDescriptionMetadataSpecificationKey_DataType : (__bridge NSString *)kCMMetadataDataType_QuickTimeMetadataLocation_ISO6709}];
+    
+    // Create metadata format description with the above created specifications which will be used to configure asset writer input
+    OSStatus err = CMMetadataFormatDescriptionCreateWithMetadataSpecifications(kCFAllocatorDefault, kCMMetadataFormatType_Boxed, (__bridge CFArrayRef)specifications, &metadataFormatDescription);
+    if (!err)
+    {
+        // Intialize asset writer video input with the above created specifications as source hint for the type of metadata to expect
+        _assetWriterMetadataIn = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeMetadata outputSettings:nil sourceFormatHint:metadataFormatDescription];
+        // Initialize metadata adaptor with the metadata input with the expected source hint
+        _assetWriterMetadataAdaptor = [AVAssetWriterInputMetadataAdaptor assetWriterInputMetadataAdaptorWithAssetWriterInput:_assetWriterMetadataIn];
+        _assetWriterMetadataIn.expectsMediaDataInRealTime = YES;
+        
+        // Add asset writer input to asset writer
+        if ([_assetWriter canAddInput:_assetWriterMetadataIn])
+        {
+            [_assetWriter addInput:_assetWriterMetadataIn];
+        }
+        else
+        {
+            NSLog(@"Couldn't add asset writer metadata input.");
+            return NO;
+        }
+    }
+    else
+    {
+        NSLog(@"Failed to create format description with metadata specification: %@", specifications);
+        return NO;
+    }
+    
+    return YES;
+}
+
+
 
 #pragma mark ================   Action Method    ================
 -(void) goBack{
@@ -588,55 +828,60 @@ API_AVAILABLE(ios(10.0))
 - (void)toggleMovieRecording:(UIButton *)sender
 {
     sender.selected = !sender.selected;
-    /*
-     Retrieve the video preview layer's video orientation on the main queue
-     before entering the session queue. We do this to ensure UI elements are
-     accessed on the main thread and session configuration is done on the session queue.
-     */
-    AVCaptureVideoOrientation videoPreviewLayerVideoOrientation = self.previewView.videoPreviewLayer.connection.videoOrientation;
-    dispatch_async( self.sessionQueue, ^{
-        if ( ! self.movieFileOutput.isRecording ) {
-            if ( [UIDevice currentDevice].isMultitaskingSupported ) {
-                /*
-                 Setup background task.
-                 This is needed because the -[captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:]
-                 callback is not received until AVCam returns to the foreground unless you request background execution time.
-                 This also ensures that there will be time to write the file to the photo library when AVCam is backgrounded.
-                 To conclude this background execution, -[endBackgroundTask:] is called in
-                 -[captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:] after the recorded file has been saved.
-                 */
-                typeof(*&self) __weak weakSelf = self;
-                self.backgroundRecordingID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-                    NSLog(@"进入后台需要处理 ========");
-                    [[UIApplication sharedApplication] endBackgroundTask:weakSelf.backgroundRecordingID];
-                }];
-            }
-
-            // Update the orientation on the movie file output video connection before starting recording.
-            AVCaptureConnection *movieFileOutputConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-            movieFileOutputConnection.videoOrientation = videoPreviewLayerVideoOrientation;
-            
-            
-
-            // Use HEVC codec if supported
-            if (@available(iOS 11.0, *)) {
-                if ( [self.movieFileOutput.availableVideoCodecTypes containsObject:AVVideoCodecTypeHEVC] ) {
-                    [self.movieFileOutput setOutputSettings:@{ AVVideoCodecKey : AVVideoCodecTypeHEVC } forConnection:movieFileOutputConnection];
-                }
-            } else {
-                // Fallback on earlier versions
-
-            }
-
-            // Start recording to a temporary file.
-            NSString *outputFileName = [NSUUID UUID].UUIDString;
-            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[outputFileName stringByAppendingPathExtension:@"mov"]];
-            [self.movieFileOutput startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
-        }
-        else {
-            [self.movieFileOutput stopRecording];
-        }
-    } );
+    if(sender.selected) {
+        [self startRecording];
+    } else {
+        [self stopRecording];
+    }
+//    /*
+//     Retrieve the video preview layer's video orientation on the main queue
+//     before entering the session queue. We do this to ensure UI elements are
+//     accessed on the main thread and session configuration is done on the session queue.
+//     */
+//    AVCaptureVideoOrientation videoPreviewLayerVideoOrientation = self.previewView.videoPreviewLayer.connection.videoOrientation;
+//    dispatch_async( self.sessionQueue, ^{
+//        if ( ! self.movieFileOutput.isRecording ) {
+//            if ( [UIDevice currentDevice].isMultitaskingSupported ) {
+//                /*
+//                 Setup background task.
+//                 This is needed because the -[captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:]
+//                 callback is not received until AVCam returns to the foreground unless you request background execution time.
+//                 This also ensures that there will be time to write the file to the photo library when AVCam is backgrounded.
+//                 To conclude this background execution, -[endBackgroundTask:] is called in
+//                 -[captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:] after the recorded file has been saved.
+//                 */
+//                typeof(*&self) __weak weakSelf = self;
+//                self.backgroundRecordingID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+//                    NSLog(@"进入后台需要处理 ========");
+//                    [[UIApplication sharedApplication] endBackgroundTask:weakSelf.backgroundRecordingID];
+//                }];
+//            }
+//
+//            // Update the orientation on the movie file output video connection before starting recording.
+//            AVCaptureConnection *movieFileOutputConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
+//            movieFileOutputConnection.videoOrientation = videoPreviewLayerVideoOrientation;
+//
+//
+//
+//            // Use HEVC codec if supported
+//            if (@available(iOS 11.0, *)) {
+//                if ( [self.movieFileOutput.availableVideoCodecTypes containsObject:AVVideoCodecTypeHEVC] ) {
+//                    [self.movieFileOutput setOutputSettings:@{ AVVideoCodecKey : AVVideoCodecTypeHEVC } forConnection:movieFileOutputConnection];
+//                }
+//            } else {
+//                // Fallback on earlier versions
+//
+//            }
+//
+//            // Start recording to a temporary file.
+//            NSString *outputFileName = [NSUUID UUID].UUIDString;
+//            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[outputFileName stringByAppendingPathExtension:@"mov"]];
+//            [self.movieFileOutput startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
+//        }
+//        else {
+//            [self.movieFileOutput stopRecording];
+//        }
+//    } );
 }
 
 -(void) flashButtonClick:(UIButton *) sender{
@@ -742,6 +987,137 @@ API_AVAILABLE(ios(10.0))
         height = width;
     }
     [self setActiveFormatWithFrameRate:[self frameRate] width:height andHeight:width error:nil];
+}
+
+- (void)resumeCaptureSession
+{
+    if (!self.session.isRunning)
+        [self.session startRunning];
+}
+
+- (void)pauseCaptureSession
+{
+    if (self.session.isRunning)
+        [self.session stopRunning];
+}
+
+- (void)removeFile:(NSURL *)fileURL
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filePath = fileURL.path;
+    if ([fileManager fileExistsAtPath:filePath])
+    {
+        NSError *error;
+        BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+        if (!success)
+            [self showError:error];
+    }
+}
+
+- (PHAssetCollectionChangeRequest *)getCurrentPhotoCollectionWithAlbumName:(NSString *)albumName {
+    // 1. 创建搜索集合
+    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    
+    // 2. 遍历搜索集合并取出对应的相册，返回当前的相册changeRequest
+    for (PHAssetCollection *assetCollection in result) {
+        if ([assetCollection.localizedTitle containsString:albumName]) {
+            PHAssetCollectionChangeRequest *collectionRuquest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+            return collectionRuquest;
+        }
+    }
+    
+    // 3. 如果不存在，创建一个名字为albumName的相册changeRequest
+    PHAssetCollectionChangeRequest *collectionRequest = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:albumName];
+    return collectionRequest;
+}
+
+- (void)saveMovieToCameraRoll
+{
+    NSError* error = nil;
+    
+    // 1. 获取照片库对象
+    PHPhotoLibrary *library = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    // 假如外面需要这个 localIdentifier ，可以通过block传出去
+    __block NSString *localIdentifier = @"";
+    
+    [library performChangesAndWait:^{
+        // 2.1 创建一个相册变动请求
+        PHAssetCollectionChangeRequest *collectionRequest = [[PHAssetCollectionChangeRequest alloc] init];
+        
+        // 2.2 根据传入的照片，创建照片变动请求
+        PHAssetChangeRequest *assetRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:_movieURL];
+        
+        // 2.3 创建一个占位对象
+        PHObjectPlaceholder *placeholder = [assetRequest placeholderForCreatedAsset];
+        localIdentifier = placeholder.localIdentifier;
+        
+        // 2.4 将占位对象添加到相册请求中
+        [collectionRequest addAssets:@[placeholder]];
+        
+        _recordingWillBeStopped = NO;
+        self.recording = NO;
+    } error:&error];
+}
+
+- (void)startRecording
+{
+    [self resumeCaptureSession];
+
+    dispatch_async(self.sessionQueue, ^{
+        
+        if (_recordingWillBeStarted || self.recording)
+            return;
+        
+        _recordingWillBeStarted = YES;
+        
+        // Remove the file if one with the same name already exists
+        [self removeFile:_movieURL];
+        
+        // Create an asset writer
+        NSError *error;
+        _assetWriter = [[AVAssetWriter alloc] initWithURL:_movieURL fileType:AVFileTypeQuickTimeMovie error:&error];
+        if (error)
+            [self showError:error];
+    });
+}
+
+- (void)stopRecording
+{
+    [self pauseCaptureSession];
+    
+    dispatch_async(self.sessionQueue, ^{
+        
+        if (_recordingWillBeStopped || !self.recording)
+            return;
+        
+        _recordingWillBeStopped = YES;
+        
+        [_assetWriter finishWritingWithCompletionHandler:^()
+         {
+             AVAssetWriterStatus completionStatus = _assetWriter.status;
+             switch (completionStatus)
+             {
+                 case AVAssetWriterStatusCompleted:
+                 {
+                     // Save the movie stored in the temp folder into camera roll.
+                     _readyToRecordVideo = NO;
+                     _readyToRecordAudio = NO;
+                     _readyToRecordMetadata = NO;
+                     _assetWriter = nil;
+                     [self saveMovieToCameraRoll];
+                     break;
+                 }
+                 case AVAssetWriterStatusFailed:
+                 {
+                     [self showError:_assetWriter.error];
+                     break;
+                 }
+                 default:
+                     break;
+             }
+         }];
+    });
 }
 
 #pragma mark ================   Private Mothod    ================
@@ -1026,64 +1402,46 @@ API_AVAILABLE(ios(10.0))
 #pragma mark ================   AVCaptureVideoDataOutputSampleBufferDelegate    ================
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
     NSLog(@"%s", __func__);
-//    if (!self.supportMetal) {
-//        [self captureOutputOrigin:captureOutput didOutputSampleBuffer:sampleBuffer fromConnection:connection];
-//        return;
-//    }
-//    if (captureOutput == _videoOutput) {
-//        currentConnection = connection;
-////        if ([self.delegate respondsToSelector:@selector(captureOutput:previewBuffer:fromConnection:)]) {
-////            [self.delegate captureOutput:captureOutput previewBuffer:sampleBuffer fromConnection:connection];
-////        }
-//        
-//        CVPixelBufferRef pixelBuffer = currentSampleBuffer;
-//        CMSampleTimingInfo info ;
-//        CMSampleBufferGetSampleTimingInfo(sampleBuffer, 0, &info);
-//        
-//        CMFormatDescriptionRef formatDesc = nil;
-//        CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer, &formatDesc);
-//        
-//        CMSampleBufferRef sampleBuffer2 = nil;
-//        CMSampleBufferCreateReadyWithImageBuffer(kCFAllocatorDefault,
-//                                                 pixelBuffer,
-//                                                 formatDesc,
-//                                                 &info,
-//                                                 &sampleBuffer2);
-//        sampleBuffer = sampleBuffer2;
-//        CFRelease(formatDesc);
-//        
-//        
-//        //        [self replacePixelData:sampleBuffer];
-//        
-//        _lastVideoBuffer.sampleBuffer = sampleBuffer;
-//        //        NSLog(@"VIDEO BUFFER: %fs (%fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)), CMTimeGetSeconds(CMSampleBufferGetDuration(sampleBuffer)));
-//        
-//        if (_shouldIgnore) {
-//            return;
-//        }
-//        
-//        SCImageView *imageView = _SCImageView;
-//        if (imageView != nil) {
-//            CFRetain(sampleBuffer);
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [imageView setImageBySampleBuffer:sampleBuffer];
-//                CFRelease(sampleBuffer);
-//            });
-//        }
-//        
-////        if (!_initializeSessionLazily || _isRecording) {
-////            SCRecordSession *recordSession = _session;
-////            if (recordSession != nil) {
-////                CFRetain(sampleBuffer);
-////                dispatch_async(_sessionQueue, ^{
-////                    [self _handleVideoSampleBuffer:sampleBuffer withSession:recordSession connection:connection];
-////                    CFRelease(sampleBuffer);
-////                });
-////            }
-////        }
-//        CFRelease(sampleBuffer2);
-//        return;
-//    }
+    CFRetain(sampleBuffer);
+    if(_assetWriter) {
+        BOOL wasReadyToRecord = [self inputsReadyToRecord];
+        if(connection == _videoConnection) {
+            if(!_readyToRecordAudio) {
+                _readyToRecordVideo = [self setupAssetWriterVideoInput:CMSampleBufferGetFormatDescription(sampleBuffer)];
+            }
+            // Write video data to file only when all the inputs are ready
+            if ([self inputsReadyToRecord])
+                [self writeSampleBuffer:sampleBuffer ofType:AVMediaTypeVideo];
+        }
+        
+        // Initialize the metadata input since capture is about to setup/ already initialized video and audio inputs
+        if (!_readyToRecordMetadata)
+            _readyToRecordMetadata = [self setupAssetWriterMetadataInputAndMetadataAdaptor];
+        
+        BOOL isReadyToRecord = [self inputsReadyToRecord];
+        
+        if (!wasReadyToRecord && isReadyToRecord)
+        {
+            _recordingWillBeStarted = NO;
+            self.recording = YES;
+        }
+    }
+    CFRelease(sampleBuffer);
+}
+
+#pragma mark - Error Handling
+
+- (void)showError:(NSError *)error
+{
+    CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void)
+                          {
+                              UIAlertController* control = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedFailureReason preferredStyle:UIAlertControllerStyleAlert];
+                              UIAlertAction* sureAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                                  NSLog(@"DO Nothing");
+                              }];
+                              [control addAction:sureAction];
+                              [self presentViewController:control animated:YES completion:nil];
+                          });
 }
 
 @end
