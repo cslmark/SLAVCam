@@ -236,19 +236,16 @@ API_AVAILABLE(ios(10.0))
      */
     if ( error.code == AVErrorMediaServicesWereReset ) {
         dispatch_async( self.sessionQueue, ^{
-            if ( self.isSessionRunning ) {
+            if (self.isSessionRunning) {
                 [self.session startRunning];
                 self.sessionRunning = self.session.isRunning;
             }
             else {
-                dispatch_async( dispatch_get_main_queue(), ^{
-//                    self.resumeButton.hidden = NO;
-                } );
+
             }
         } );
     }
     else {
-//        self.resumeButton.hidden = NO;
     }
 }
 
@@ -273,21 +270,7 @@ API_AVAILABLE(ios(10.0))
         showResumeButton = YES;
     }
     else if ( reason == AVCaptureSessionInterruptionReasonVideoDeviceNotAvailableWithMultipleForegroundApps ) {
-        // Simply fade-in a label to inform the user that the camera is unavailable.
-//        self.cameraUnavailableLabel.alpha = 0.0;
-//        self.cameraUnavailableLabel.hidden = NO;
-        [UIView animateWithDuration:0.25 animations:^{
-//            self.cameraUnavailableLabel.alpha = 1.0;
-        }];
-    }
-    
-    if ( showResumeButton ) {
-        // Simply fade-in a button to enable the user to try to resume the session running.
-//        self.resumeButton.alpha = 0.0;
-//        self.resumeButton.hidden = NO;
-        [UIView animateWithDuration:0.25 animations:^{
-//            self.resumeButton.alpha = 1.0;
-        }];
+
     }
 }
 
@@ -295,22 +278,21 @@ API_AVAILABLE(ios(10.0))
 {
     NSLog(@"%s", __func__);
     NSLog( @"Capture session interruption ended" );
-//    if ( ! self.resumeButton.hidden ) {
-//        [UIView animateWithDuration:0.25 animations:^{
-//            self.resumeButton.alpha = 0.0;
-//        } completion:^( BOOL finished ) {
-//            self.resumeButton.hidden = YES;
-//        }];
-//    }
-//    if ( ! self.cameraUnavailableLabel.hidden ) {
-//        [UIView animateWithDuration:0.25 animations:^{
-//            self.cameraUnavailableLabel.alpha = 0.0;
-//        } completion:^( BOOL finished ) {
-//            self.cameraUnavailableLabel.hidden = YES;
-//        }];
-//    }
+    //    if ( ! self.resumeButton.hidden ) {
+    //        [UIView animateWithDuration:0.25 animations:^{
+    //            self.resumeButton.alpha = 0.0;
+    //        } completion:^( BOOL finished ) {
+    //            self.resumeButton.hidden = YES;
+    //        }];
+    //    }
+    //    if ( ! self.cameraUnavailableLabel.hidden ) {
+    //        [UIView animateWithDuration:0.25 animations:^{
+    //            self.cameraUnavailableLabel.alpha = 0.0;
+    //        } completion:^( BOOL finished ) {
+    //            self.cameraUnavailableLabel.hidden = YES;
+    //        }];
+    //    }
 }
-
 
 
 #pragma mark ================   Setup UI & Init Data    ================
@@ -991,8 +973,11 @@ API_AVAILABLE(ios(10.0))
 
 - (void)resumeCaptureSession
 {
-    if (!self.session.isRunning)
-        [self.session startRunning];
+    dispatch_async(self.sessionQueue, ^{
+        if (!self.session.isRunning){
+            [self.session startRunning];
+        }
+    });
 }
 
 - (void)pauseCaptureSession
